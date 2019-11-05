@@ -20,26 +20,36 @@ namespace SmallestFibonachiNumber
         public Form1()
         {
             InitializeComponent();
-            label1.Text = "Any special preferences/request,\r\n please enter here:";
+            lbPreferences.Text = "Any special preferences/request,\r\n please enter here:";
             //this.BackgroundImage = Image.FromFile("C:\\");
+            /*for(int i = 0; i<100; i++)
+            {
+                listBoxOrder.Items.Add("");
+            }*/
         }
         String orderOnScreen;
         String orderBtwApps;
-        int counterOrdersPerCustomers, counterCola, counterPepsi, counterFanta, counterJuice, counterLipton, counterSchweppes = 0;
+
+        bool pizzaTypeCh, pizzaSizeCh, pizzaExtraCh = false;
         
-        private void DrinksCounter (int counterDrink, lb)
+        int size = 1;
+        int counterOrdersPerCustomers = 0;
+        
+        private void DrinksCounter (Label lb, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                counterCola++;
-                lbCola.Text = counterCola.ToString();
+                int counterDrink = Convert.ToInt32(lb.Text);
+                counterDrink++;
+                lb.Text = counterDrink.ToString();
             }
             if (e.Button == MouseButtons.Right)
             {
-                counterCola--;
-                if (counterCola < 0)
-                    counterCola = 0;
-                lbCola.Text = counterCola.ToString();
+                int counterDrink = Convert.ToInt32(lb.Text);
+                counterDrink--;
+                if (counterDrink < 0)
+                    counterDrink = 0;
+                lb.Text = counterDrink.ToString();
             }
         }
 
@@ -109,10 +119,50 @@ namespace SmallestFibonachiNumber
         {
             counterOrdersPerCustomers++;
         }
-
+        
         private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            if(pizzaSizeCh)
+            {
+
+            }
+
+            /*int f = 0; //Drinks index 
+            int l = 0; //advances once in String array
+            String[] checkedItems = new string[chlbExtra.CheckedItems.Count];
+            for(int i = 2; i < 100; i++)
+            {
+                if(listBoxOrder.Items[i].ToString() == "Drinks:")
+                {
+                    f = i;
+                    break;
+                }               
+            }
+            for (int i = 3; i < f; i++)
+            {
+                listBoxOrder.Items[i] = "*";
+            }
+            for(int j = 0; j < chlbExtra.Items.Count; j++)
+            {
+             
+                if(chlbExtra.GetItemChecked(j))
+                {
+                    
+                    checkedItems[l] = chlbExtra.Items[j].ToString();
+                    l++;
+                }
+                else
+                {
+                    //listBoxOrder.Items
+                }
+            }
+            listBoxOrder.Items[2] = "Additional:";
+
+            for (int k = 0; k < checkedItems.Length; k++)
+            {
+                listBoxOrder.Items[3 + k] = checkedItems[k];
+            }*/
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -122,18 +172,32 @@ namespace SmallestFibonachiNumber
 
         private void pbCola_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                counterCola++;
-                lbCola.Text = counterCola.ToString();
-            }
-            if (e.Button == MouseButtons.Right)
-            {
-                counterCola--;
-                if (counterCola < 0)
-                    counterCola = 0;
-                lbCola.Text = counterCola.ToString();
-            }
+            DrinksCounter(lbCola, e);
+        }
+
+        private void pbPepsi_MouseDown(object sender, MouseEventArgs e)
+        {
+            DrinksCounter(lbPepsi, e);
+        }
+
+        private void pbFanta_MouseDown(object sender, MouseEventArgs e)
+        {
+            DrinksCounter(lbFanta, e);
+        }
+
+        private void pbJuice_MouseDown(object sender, MouseEventArgs e)
+        {
+            DrinksCounter(lbJuice, e);
+        }
+
+        private void pbLipton_MouseDown(object sender, MouseEventArgs e)
+        {
+            DrinksCounter(lbLipton, e);
+        }
+
+        private void pbSchweppes_MouseDown(object sender, MouseEventArgs e)
+        {
+            DrinksCounter(lbSchweppes, e);
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -163,7 +227,71 @@ namespace SmallestFibonachiNumber
 
         private void comboBoxPizza_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBox1.Items.Insert(0, "Pizza type: " + comboBoxPizza.SelectedText);
+            pizzaTypeCh = true;
+            if (listBoxOrder.Items.Count == 0)
+                listBoxOrder.Items.Add("Pizza type: " + comboBoxPizza.Text);
+            else
+                listBoxOrder.Items[0] = "Pizza type: " + comboBoxPizza.Text;
+
+            /*listBoxOrder.Items[0] = "Pizza type: " + comboBoxPizza.Text;
+            //pizzaType = < pizzaName >; this to be passed to server*/
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if(pizzaTypeCh)
+            {
+                if (listBoxOrder.Items.Count == 1)
+                {
+                    listBoxOrder.Items.Add("Pizza size: Small");
+                    pizzaSizeCh = true;
+                }
+                else
+                {
+                    listBoxOrder.Items[1] = "Pizza size: Small";
+                    pizzaSizeCh = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select pizza type first!");
+            }
+            /*listBoxOrder.Items[1] = "Pizza size: Small";
+            //pizzaSize = <sizeString>; this to be passed to server*/
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (pizzaTypeCh)
+            {
+                if (listBoxOrder.Items.Count == 1)
+                    listBoxOrder.Items.Add("Pizza size: Medium");
+                else
+                    listBoxOrder.Items[1] = "Pizza size: Medium";
+            }
+            else
+            {
+                MessageBox.Show("Please select pizza type first!");
+            }
+            /*listBoxOrder.Items[1] = "Pizza size: Medium";
+            //pizzaSize = <sizeString>; this to be passed to server*/
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (pizzaTypeCh)
+            {
+                if (listBoxOrder.Items.Count == 1)
+                    listBoxOrder.Items.Add("Pizza size: Large");
+                else
+                    listBoxOrder.Items[1] = "Pizza size: Large";
+            }
+            else
+            {
+                MessageBox.Show("Please select pizza type first!");
+            }
+            /*listBoxOrder.Items[1] = "Pizza size: Large";
+            //pizzaSize = <sizeString>; this to be passed to server*/
         }
     }
 }

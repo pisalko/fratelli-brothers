@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.buttonReset = new System.Windows.Forms.Button();
+            this.btnAddToOrder = new System.Windows.Forms.Button();
+            this.listBoxOrder = new System.Windows.Forms.ListBox();
+            this.chlbExtra = new System.Windows.Forms.CheckedListBox();
+            this.btnToServer = new System.Windows.Forms.Button();
             this.comboBoxPizza = new System.Windows.Forms.ComboBox();
             this.textBoxPreferences = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lbPreferences = new System.Windows.Forms.Label();
+            this.listViewReadyOrders = new System.Windows.Forms.ListView();
             this.pbLipton = new System.Windows.Forms.PictureBox();
             this.pbSchweppes = new System.Windows.Forms.PictureBox();
             this.pbJuice = new System.Windows.Forms.PictureBox();
             this.pbPepsi = new System.Windows.Forms.PictureBox();
             this.pbFanta = new System.Windows.Forms.PictureBox();
             this.pbCola = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbLargePizza = new System.Windows.Forms.PictureBox();
+            this.pbMediumPizza = new System.Windows.Forms.PictureBox();
+            this.pbSmallPizza = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbCola = new System.Windows.Forms.Label();
             this.lbPepsi = new System.Windows.Forms.Label();
@@ -60,43 +60,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPepsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFanta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCola)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLargePizza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMediumPizza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSmallPizza)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAddToOrder
             // 
-            this.button1.FlatAppearance.BorderSize = 5;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(393, 508);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 62);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add to order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnAddToOrder.FlatAppearance.BorderSize = 5;
+            this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToOrder.Location = new System.Drawing.Point(393, 508);
+            this.btnAddToOrder.Name = "btnAddToOrder";
+            this.btnAddToOrder.Size = new System.Drawing.Size(217, 62);
+            this.btnAddToOrder.TabIndex = 1;
+            this.btnAddToOrder.Text = "Add to order";
+            this.btnAddToOrder.UseVisualStyleBackColor = true;
+            this.btnAddToOrder.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // listBox1
+            // listBoxOrder
             // 
-            this.listBox1.BackColor = System.Drawing.Color.Beige;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(703, 172);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(255, 324);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxOrder.BackColor = System.Drawing.Color.Beige;
+            this.listBoxOrder.FormattingEnabled = true;
+            this.listBoxOrder.ItemHeight = 16;
+            this.listBoxOrder.Location = new System.Drawing.Point(703, 172);
+            this.listBoxOrder.Name = "listBoxOrder";
+            this.listBoxOrder.Size = new System.Drawing.Size(255, 324);
+            this.listBoxOrder.TabIndex = 3;
+            this.listBoxOrder.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // checkedListBox1
+            // chlbExtra
             // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.Beige;
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.chlbExtra.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.chlbExtra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chlbExtra.CheckOnClick = true;
+            this.chlbExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chlbExtra.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chlbExtra.FormattingEnabled = true;
+            this.chlbExtra.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chlbExtra.Items.AddRange(new object[] {
+            "No Extras",
             "Extra Tomato sauce + $",
             "Extra mushrooms + $",
             "Extra onions + $",
@@ -105,24 +109,25 @@
             "Extra rucola + $",
             "Philadelphia crust + $",
             "Italian-crafted base + $"});
-            this.checkedListBox1.Location = new System.Drawing.Point(45, 415);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(261, 175);
-            this.checkedListBox1.TabIndex = 4;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
+            this.chlbExtra.Location = new System.Drawing.Point(45, 412);
+            this.chlbExtra.Name = "chlbExtra";
+            this.chlbExtra.Size = new System.Drawing.Size(261, 190);
+            this.chlbExtra.TabIndex = 4;
+            this.chlbExtra.UseCompatibleTextRendering = true;
+            this.chlbExtra.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
             // 
-            // buttonReset
+            // btnToServer
             // 
-            this.buttonReset.FlatAppearance.BorderSize = 5;
-            this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReset.Location = new System.Drawing.Point(703, 512);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(255, 63);
-            this.buttonReset.TabIndex = 8;
-            this.buttonReset.Text = "Finalize && Pay";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.btnToServer.FlatAppearance.BorderSize = 5;
+            this.btnToServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToServer.Location = new System.Drawing.Point(703, 512);
+            this.btnToServer.Name = "btnToServer";
+            this.btnToServer.Size = new System.Drawing.Size(255, 63);
+            this.btnToServer.TabIndex = 8;
+            this.btnToServer.Text = "Finalize && Pay";
+            this.btnToServer.UseVisualStyleBackColor = true;
+            this.btnToServer.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // comboBoxPizza
             // 
@@ -131,11 +136,11 @@
             this.comboBoxPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPizza.FormattingEnabled = true;
             this.comboBoxPizza.Items.AddRange(new object[] {
-            "Pizza1",
-            "Pizza2",
-            "Pizza3",
-            "Pizza4",
-            "Pizza5"});
+            "Margherita",
+            "Calzone",
+            "Hawaii",
+            "Pepperoni",
+            "Vegan"});
             this.comboBoxPizza.Location = new System.Drawing.Point(45, 265);
             this.comboBoxPizza.Name = "comboBoxPizza";
             this.comboBoxPizza.Size = new System.Drawing.Size(261, 28);
@@ -152,24 +157,24 @@
             this.textBoxPreferences.Size = new System.Drawing.Size(217, 81);
             this.textBoxPreferences.TabIndex = 10;
             // 
-            // label1
+            // lbPreferences
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(390, 166);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(357, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Any special preferences/request,\\r\\n please enter here:";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            this.lbPreferences.AutoSize = true;
+            this.lbPreferences.Location = new System.Drawing.Point(390, 166);
+            this.lbPreferences.Name = "lbPreferences";
+            this.lbPreferences.Size = new System.Drawing.Size(357, 17);
+            this.lbPreferences.TabIndex = 11;
+            this.lbPreferences.Text = "Any special preferences/request,\\r\\n please enter here:";
+            this.lbPreferences.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // listView1
+            // listViewReadyOrders
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(243, 26);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(689, 97);
-            this.listView1.TabIndex = 28;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewReadyOrders.HideSelection = false;
+            this.listViewReadyOrders.Location = new System.Drawing.Point(243, 26);
+            this.listViewReadyOrders.Name = "listViewReadyOrders";
+            this.listViewReadyOrders.Size = new System.Drawing.Size(689, 97);
+            this.listViewReadyOrders.TabIndex = 28;
+            this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
             // 
             // pbLipton
             // 
@@ -180,6 +185,7 @@
             this.pbLipton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLipton.TabIndex = 26;
             this.pbLipton.TabStop = false;
+            this.pbLipton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbLipton_MouseDown);
             // 
             // pbSchweppes
             // 
@@ -190,6 +196,7 @@
             this.pbSchweppes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSchweppes.TabIndex = 25;
             this.pbSchweppes.TabStop = false;
+            this.pbSchweppes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSchweppes_MouseDown);
             // 
             // pbJuice
             // 
@@ -200,6 +207,7 @@
             this.pbJuice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbJuice.TabIndex = 24;
             this.pbJuice.TabStop = false;
+            this.pbJuice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbJuice_MouseDown);
             // 
             // pbPepsi
             // 
@@ -210,6 +218,7 @@
             this.pbPepsi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPepsi.TabIndex = 22;
             this.pbPepsi.TabStop = false;
+            this.pbPepsi.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPepsi_MouseDown);
             // 
             // pbFanta
             // 
@@ -220,6 +229,7 @@
             this.pbFanta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFanta.TabIndex = 21;
             this.pbFanta.TabStop = false;
+            this.pbFanta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbFanta_MouseDown);
             // 
             // pbCola
             // 
@@ -232,35 +242,38 @@
             this.pbCola.TabStop = false;
             this.pbCola.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCola_MouseDown);
             // 
-            // pictureBox4
+            // pbLargePizza
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(191, 299);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(115, 107);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
+            this.pbLargePizza.Image = ((System.Drawing.Image)(resources.GetObject("pbLargePizza.Image")));
+            this.pbLargePizza.Location = new System.Drawing.Point(191, 299);
+            this.pbLargePizza.Name = "pbLargePizza";
+            this.pbLargePizza.Size = new System.Drawing.Size(115, 107);
+            this.pbLargePizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLargePizza.TabIndex = 16;
+            this.pbLargePizza.TabStop = false;
+            this.pbLargePizza.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox3
+            // pbMediumPizza
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(101, 313);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(84, 80);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
+            this.pbMediumPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbMediumPizza.Image")));
+            this.pbMediumPizza.Location = new System.Drawing.Point(101, 313);
+            this.pbMediumPizza.Name = "pbMediumPizza";
+            this.pbMediumPizza.Size = new System.Drawing.Size(84, 80);
+            this.pbMediumPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMediumPizza.TabIndex = 15;
+            this.pbMediumPizza.TabStop = false;
+            this.pbMediumPizza.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox2
+            // pbSmallPizza
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(45, 333);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 49);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            this.pbSmallPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbSmallPizza.Image")));
+            this.pbSmallPizza.Location = new System.Drawing.Point(45, 333);
+            this.pbSmallPizza.Name = "pbSmallPizza";
+            this.pbSmallPizza.Size = new System.Drawing.Size(50, 49);
+            this.pbSmallPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSmallPizza.TabIndex = 14;
+            this.pbSmallPizza.TabStop = false;
+            this.pbSmallPizza.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -350,24 +363,24 @@
             this.Controls.Add(this.lbFanta);
             this.Controls.Add(this.lbPepsi);
             this.Controls.Add(this.lbCola);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewReadyOrders);
             this.Controls.Add(this.pbLipton);
             this.Controls.Add(this.pbSchweppes);
             this.Controls.Add(this.pbJuice);
             this.Controls.Add(this.pbPepsi);
             this.Controls.Add(this.pbFanta);
             this.Controls.Add(this.pbCola);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbLargePizza);
+            this.Controls.Add(this.pbMediumPizza);
+            this.Controls.Add(this.pbSmallPizza);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbPreferences);
             this.Controls.Add(this.textBoxPreferences);
             this.Controls.Add(this.comboBoxPizza);
-            this.Controls.Add(this.buttonReset);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnToServer);
+            this.Controls.Add(this.chlbExtra);
+            this.Controls.Add(this.listBoxOrder);
+            this.Controls.Add(this.btnAddToOrder);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Fratelli Pizza Interface Cashier";
@@ -378,9 +391,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPepsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFanta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCola)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLargePizza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMediumPizza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSmallPizza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -388,24 +401,24 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button btnAddToOrder;
+        private System.Windows.Forms.ListBox listBoxOrder;
+        private System.Windows.Forms.CheckedListBox chlbExtra;
+        private System.Windows.Forms.Button btnToServer;
         private System.Windows.Forms.ComboBox comboBoxPizza;
         private System.Windows.Forms.TextBox textBoxPreferences;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPreferences;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pbSmallPizza;
+        private System.Windows.Forms.PictureBox pbMediumPizza;
+        private System.Windows.Forms.PictureBox pbLargePizza;
         private System.Windows.Forms.PictureBox pbCola;
         private System.Windows.Forms.PictureBox pbFanta;
         private System.Windows.Forms.PictureBox pbPepsi;
         private System.Windows.Forms.PictureBox pbLipton;
         private System.Windows.Forms.PictureBox pbSchweppes;
         private System.Windows.Forms.PictureBox pbJuice;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewReadyOrders;
         private System.Windows.Forms.Label lbCola;
         private System.Windows.Forms.Label lbPepsi;
         private System.Windows.Forms.Label lbFanta;

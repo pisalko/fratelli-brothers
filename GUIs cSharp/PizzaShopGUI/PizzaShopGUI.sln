@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShopGUI", "PizzaShopGU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luigi GUI", "..\Luigi GUI\Luigi GUI.csproj", "{4503F49F-4757-4AF6-8EA0-C51171644677}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python server WORKING POST GET", "..\..\..\Introduction Project\Java server VS attempt 1\Java server attempt 1\Python server WORKING POST GET\Python server WORKING POST GET.pyproj", "{FF5AFDCF-21BB-44C6-97A9-C3223F70FEFD}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python server WORKING POST GET", "..\..\Java server VS attempt 1\Java server attempt 1\Python server WORKING POST GET\Python server WORKING POST GET.pyproj", "{FF5AFDCF-21BB-44C6-97A9-C3223F70FEFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Java server attempt 1", "..\..\..\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\Java server attempt 1.csproj", "{D7919A95-003C-49A2-B697-EDBC5CEBE094}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Java server attempt 1", "..\..\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\Java server attempt 1.csproj", "{D7919A95-003C-49A2-B697-EDBC5CEBE094}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
