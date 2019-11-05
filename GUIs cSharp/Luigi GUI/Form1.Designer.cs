@@ -37,6 +37,7 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkKhaki;
             this.button1.FlatAppearance.BorderSize = 5;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -45,12 +46,13 @@
             this.button1.Size = new System.Drawing.Size(560, 53);
             this.button1.TabIndex = 0;
             this.button1.Text = "Order *order nmb* Ready";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.Beige;
+            this.listBox1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.listBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
@@ -74,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listBox1);
