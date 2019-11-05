@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luigi GUI", "Luigi GUI.csproj", "{4503F49F-4757-4AF6-8EA0-C51171644677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShopGUI", "..\SmallestFibonachiNumber\PizzaShopGUI.csproj", "{EEDFB422-CA7A-4423-9FA6-B691ED42D239}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D97E6723-0901-4D5E-B13A-703E01EDCA46}
+	EndGlobalSection
+EndGlobal

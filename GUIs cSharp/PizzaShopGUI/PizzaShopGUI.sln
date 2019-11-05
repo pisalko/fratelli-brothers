@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShopGUI", "PizzaShopGUI.csproj", "{EEDFB422-CA7A-4423-9FA6-B691ED42D239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luigi GUI", "..\Luigi GUI\Luigi GUI.csproj", "{4503F49F-4757-4AF6-8EA0-C51171644677}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python server WORKING POST GET", "..\..\..\Introduction Project\Java server VS attempt 1\Java server attempt 1\Python server WORKING POST GET\Python server WORKING POST GET.pyproj", "{FF5AFDCF-21BB-44C6-97A9-C3223F70FEFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Java server attempt 1", "..\..\..\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\Java server attempt 1.csproj", "{D7919A95-003C-49A2-B697-EDBC5CEBE094}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4503F49F-4757-4AF6-8EA0-C51171644677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF5AFDCF-21BB-44C6-97A9-C3223F70FEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5AFDCF-21BB-44C6-97A9-C3223F70FEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7919A95-003C-49A2-B697-EDBC5CEBE094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7919A95-003C-49A2-B697-EDBC5CEBE094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7919A95-003C-49A2-B697-EDBC5CEBE094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7919A95-003C-49A2-B697-EDBC5CEBE094}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {133143BC-C073-43B3-9532-8CA1AB6FE803}
+	EndGlobalSection
+EndGlobal

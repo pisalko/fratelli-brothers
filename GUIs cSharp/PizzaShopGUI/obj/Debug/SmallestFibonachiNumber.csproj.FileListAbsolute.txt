@@ -1,0 +1,10 @@
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\bin\Debug\SmallestFibonachiNumber.exe.config
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\bin\Debug\SmallestFibonachiNumber.exe
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\bin\Debug\SmallestFibonachiNumber.pdb
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.csprojAssemblyReference.cache
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.Form1.resources
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.Properties.Resources.resources
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.csproj.GenerateResource.cache
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.csproj.CoreCompileInputs.cache
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.exe
+C:\Users\Valio\source\repos\SmallestFibonachiNumber\obj\Debug\SmallestFibonachiNumber.pdb

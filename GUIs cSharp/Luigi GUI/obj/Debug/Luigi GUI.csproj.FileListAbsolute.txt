@@ -1,0 +1,10 @@
+C:\Users\Valio\source\repos\Luigi GUI\bin\Debug\Luigi GUI.exe.config
+C:\Users\Valio\source\repos\Luigi GUI\bin\Debug\Luigi GUI.exe
+C:\Users\Valio\source\repos\Luigi GUI\bin\Debug\Luigi GUI.pdb
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi GUI.csprojAssemblyReference.cache
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi_GUI.LuigiGUI.resources
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi_GUI.Properties.Resources.resources
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi GUI.csproj.GenerateResource.cache
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi GUI.csproj.CoreCompileInputs.cache
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi GUI.exe
+C:\Users\Valio\source\repos\Luigi GUI\obj\Debug\Luigi GUI.pdb

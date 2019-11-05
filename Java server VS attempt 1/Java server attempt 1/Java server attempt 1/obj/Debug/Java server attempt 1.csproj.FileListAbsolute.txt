@@ -1,0 +1,18 @@
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.exe.config
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.exe
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.pdb
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.csprojAssemblyReference.cache
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java_server_attempt_1.Form1.resources
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java_server_attempt_1.Properties.Resources.resources
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.csproj.GenerateResource.cache
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.exe
+C:\Users\Valio\Desktop\GIT\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.pdb
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.exe.config
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.exe
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Debug\Java server attempt 1.pdb
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.csprojAssemblyReference.cache
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java_server_attempt_1.Form1.resources
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java_server_attempt_1.Properties.Resources.resources
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.csproj.GenerateResource.cache
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.exe
+C:\Users\Valio\Desktop\GITHUB\Personal-Projects-Fontys\Introduction Project\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Debug\Java server attempt 1.pdb
