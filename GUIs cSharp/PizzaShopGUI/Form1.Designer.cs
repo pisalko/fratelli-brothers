@@ -81,7 +81,7 @@
             // 
             // listBoxOrder
             // 
-            this.listBoxOrder.BackColor = System.Drawing.Color.Beige;
+            this.listBoxOrder.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listBoxOrder.FormattingEnabled = true;
             this.listBoxOrder.ItemHeight = 16;
             this.listBoxOrder.Location = new System.Drawing.Point(703, 172);
@@ -92,7 +92,7 @@
             // 
             // chlbExtra
             // 
-            this.chlbExtra.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.chlbExtra.BackColor = System.Drawing.Color.Khaki;
             this.chlbExtra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chlbExtra.CheckOnClick = true;
             this.chlbExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,7 +131,7 @@
             // 
             // comboBoxPizza
             // 
-            this.comboBoxPizza.BackColor = System.Drawing.Color.Beige;
+            this.comboBoxPizza.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.comboBoxPizza.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPizza.FormattingEnabled = true;
@@ -150,7 +150,7 @@
             // 
             // textBoxPreferences
             // 
-            this.textBoxPreferences.BackColor = System.Drawing.Color.Beige;
+            this.textBoxPreferences.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.textBoxPreferences.Location = new System.Drawing.Point(393, 201);
             this.textBoxPreferences.Multiline = true;
             this.textBoxPreferences.Name = "textBoxPreferences";
@@ -169,6 +169,7 @@
             // 
             // listViewReadyOrders
             // 
+            this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listViewReadyOrders.HideSelection = false;
             this.listViewReadyOrders.Location = new System.Drawing.Point(243, 26);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
@@ -354,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(999, 608);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbSchweppes);
