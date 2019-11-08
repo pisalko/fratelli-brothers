@@ -6,18 +6,9 @@ const int KEY1 = 8;
 const int KEY2 = 9;
 const int LDR = A2;
 
-int ldrValueSet;
-int ldrValueNow;
-
-bool key1State = true;
-bool key1OldState = true;
-bool key1Click = true;
-
-bool key2State = true;
-bool key2OldState = true;
-bool key2Click = true;
-
 unsigned long debounceTimer = 0;
+int ldrEnv, ldrEnvNow, counterPizza = 0;
+bool lock = false;
 
 void setup() {
   // put your setup code here, to run once:
@@ -28,15 +19,15 @@ void setup() {
   pinMode(KEY1, INPUT_PULLUP);
   pinMode(KEY2, INPUT_PULLUP);
   pinMode(LDR, INPUT);
-  Serial.begin(9600);    //Using the Serial monitor for debugging
+  Serial.begin(9600);
   debounceTimer = millis();
 }
 
-void loop() 
+void loop()
 {
-//-------------------------------------------------------
-  
-  if (millis() - debounceTimer < 80)
+  //-------------------------------------------------------
+
+  if (millis() - debounceTimer < 50)
   {
     return;
   }
@@ -44,23 +35,13 @@ void loop()
   {
     debounceTimer = millis();
   }
-//-------------------------------------------------------
-  
+  //-------------------------------------------------------
+
   key1State = digitalRead(KEY1);
   key2State = digitalRead(KEY2);
 
-//-------------------------------------------------------
-  if (key2State != key2OldState)
-  {
-    key2OldState = key2State;
-    key2Click = true;
-  } else
-  {
-    key2Click = false;
-  }
-
-
-  if (key1State != key1OldState)
+  //-------------------------------------------------------
+  if (key1State != key1OldState)        //StateChange Machine KEY1
   {
     key1OldState = key1State;
     key1Click = true;
@@ -68,14 +49,37 @@ void loop()
   {
     key1Click = false;
   }
-//-------------------------------------------------------
 
-if (key1Click && !key1State)
+  if (key2State != key2OldState)        //StateChange Machine KEY2
   {
-    ldrValueSet = map(analogRead(LDR), 0, 1023, 0, 351);
-    counterPizza = 0;
-    Serial.println("Key1 worksssssssss");
+    key2Click = true;
+    key2OldState = key2State;
+
+  } else
+  {
+    key2Click = false;
   }
+  //-------------------------------------------------------
+
+  if (key1Click && !key1State)
+  {
+    ldrEnv = analogRead(LDR);
+  }
+
+  if (ldrEnvNow < ldrEnv - 50)
+  {
+    if (lock)
+    {
+      counterPizza++;
+      lock = false;
+      Serial.println(counterPizza);
+    }
+  }
+  else
+  {
+    lock = true
+  }
+
 
 
 
