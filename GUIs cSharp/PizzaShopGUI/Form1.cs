@@ -31,11 +31,11 @@ namespace SmallestFibonachiNumber
         String orderBtwApps;
 
         bool pizzaTypeCh, pizzaSizeCh, pizzaExtraCh = false;
-        
+
         int size = 1;
         int counterOrdersPerCustomers = 0;
-        
-        private void DrinksCounter (Label lb, MouseEventArgs e)
+
+        private void DrinksCounter(Label lb, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -172,7 +172,7 @@ namespace SmallestFibonachiNumber
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            POSTrequest("http://145.93.61.233:42069");
+            //POSTrequest("http://145.93.61.233:42069");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,7 +194,7 @@ namespace SmallestFibonachiNumber
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if(pizzaTypeCh)
+            if (pizzaTypeCh)
             {
                 if (listBoxOrder.Items.Count == 1)
                 {
@@ -215,14 +215,40 @@ namespace SmallestFibonachiNumber
             //pizzaSize = <sizeString>; this to be passed to server*/
         }
 
+        bool once2 = true;
+            
         private void ChlbExtra_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            
+            if (pizzaSizeCh)
+            {
+                
+                if (once2)
+                {
+                    listBoxOrder.Items.Add("Extras:");
+                    once2 = false;
+                }
+                if (e.NewValue == CheckState.Checked)
+                    listBoxOrder.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                if (e.NewValue == CheckState.Unchecked)
+                    listBoxOrder.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
+            }
+            else
+            {
+                MessageBox.Show("Please choose pizza type and size first!");
+                e.NewValue = CheckState.Unchecked;
+            }
+        }
 
-           if (e.NewValue == CheckState.Checked)
-               listBoxOrder.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
-           if (e.NewValue == CheckState.Unchecked)
-               listBoxOrder.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
-          
+        private void textBoxPreferences_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void constantChecks_Tick(object sender, EventArgs e)
+        {
+            if (chlbExtra.CheckedItems.Count == 0)
+                listBoxOrder.Items.Remove("Extras:");
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -230,9 +256,15 @@ namespace SmallestFibonachiNumber
             if (pizzaTypeCh)
             {
                 if (listBoxOrder.Items.Count == 1)
+                {
                     listBoxOrder.Items.Add("Pizza size: Medium");
+                    pizzaSizeCh = true;
+                }
                 else
+                {
                     listBoxOrder.Items[1] = "Pizza size: Medium";
+                    pizzaSizeCh = true;
+                }
             }
             else
             {
@@ -247,9 +279,15 @@ namespace SmallestFibonachiNumber
             if (pizzaTypeCh)
             {
                 if (listBoxOrder.Items.Count == 1)
+                {
                     listBoxOrder.Items.Add("Pizza size: Large");
+                    pizzaSizeCh = true;
+                }
                 else
+                {
                     listBoxOrder.Items[1] = "Pizza size: Large";
+                    pizzaSizeCh = true;
+                }
             }
             else
             {
