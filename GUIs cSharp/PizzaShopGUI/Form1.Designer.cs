@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.listBoxOrder = new System.Windows.Forms.ListBox();
@@ -55,6 +56,7 @@
             this.lbSchweppes = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnServed = new System.Windows.Forms.Button();
+            this.constantChecks = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -132,6 +134,7 @@
             // comboBoxPizza
             // 
             this.comboBoxPizza.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.comboBoxPizza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPizza.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPizza.FormattingEnabled = true;
@@ -148,7 +151,6 @@
             this.comboBoxPizza.Name = "comboBoxPizza";
             this.comboBoxPizza.Size = new System.Drawing.Size(261, 28);
             this.comboBoxPizza.TabIndex = 9;
-            this.comboBoxPizza.Text = "Pizza";
             this.comboBoxPizza.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizza_SelectedIndexChanged);
             // 
             // textBoxPreferences
@@ -159,6 +161,7 @@
             this.textBoxPreferences.Name = "textBoxPreferences";
             this.textBoxPreferences.Size = new System.Drawing.Size(217, 81);
             this.textBoxPreferences.TabIndex = 10;
+            this.textBoxPreferences.TextChanged += new System.EventHandler(this.textBoxPreferences_TextChanged);
             // 
             // lbPreferences
             // 
@@ -366,6 +369,12 @@
             this.btnServed.Text = "Served";
             this.btnServed.UseVisualStyleBackColor = true;
             // 
+            // constantChecks
+            // 
+            this.constantChecks.Enabled = true;
+            this.constantChecks.Interval = 30;
+            this.constantChecks.Tick += new System.EventHandler(this.constantChecks_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,6 +453,7 @@
         private System.Windows.Forms.Label lbSchweppes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnServed;
+        private System.Windows.Forms.Timer constantChecks;
     }
 }
 
