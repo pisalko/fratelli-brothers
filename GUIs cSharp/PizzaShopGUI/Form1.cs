@@ -119,51 +119,6 @@ namespace SmallestFibonachiNumber
         {
             counterOrdersPerCustomers++;
         }
-        
-        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if(pizzaSizeCh)
-            {
-
-            }
-
-            /*int f = 0; //Drinks index 
-            int l = 0; //advances once in String array
-            String[] checkedItems = new string[chlbExtra.CheckedItems.Count];
-            for(int i = 2; i < 100; i++)
-            {
-                if(listBoxOrder.Items[i].ToString() == "Drinks:")
-                {
-                    f = i;
-                    break;
-                }               
-            }
-            for (int i = 3; i < f; i++)
-            {
-                listBoxOrder.Items[i] = "*";
-            }
-            for(int j = 0; j < chlbExtra.Items.Count; j++)
-            {
-             
-                if(chlbExtra.GetItemChecked(j))
-                {
-                    
-                    checkedItems[l] = chlbExtra.Items[j].ToString();
-                    l++;
-                }
-                else
-                {
-                    //listBoxOrder.Items
-                }
-            }
-            listBoxOrder.Items[2] = "Additional:";
-
-            for (int k = 0; k < checkedItems.Length; k++)
-            {
-                listBoxOrder.Items[3 + k] = checkedItems[k];
-            }*/
-        }
 
         private void Label1_Click(object sender, EventArgs e)
         {
@@ -258,6 +213,16 @@ namespace SmallestFibonachiNumber
             }
             /*listBoxOrder.Items[1] = "Pizza size: Small";
             //pizzaSize = <sizeString>; this to be passed to server*/
+        }
+
+        private void ChlbExtra_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+
+           if (e.NewValue == CheckState.Checked)
+               listBoxOrder.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
+           if (e.NewValue == CheckState.Unchecked)
+               listBoxOrder.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
+          
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

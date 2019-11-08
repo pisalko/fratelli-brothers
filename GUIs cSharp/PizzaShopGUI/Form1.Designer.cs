@@ -54,6 +54,7 @@
             this.lbLipton = new System.Windows.Forms.Label();
             this.lbSchweppes = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnServed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -100,7 +101,6 @@
             this.chlbExtra.FormattingEnabled = true;
             this.chlbExtra.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chlbExtra.Items.AddRange(new object[] {
-            "No Extras",
             "Extra Tomato sauce + $",
             "Extra mushrooms + $",
             "Extra onions + $",
@@ -109,12 +109,12 @@
             "Extra rucola + $",
             "Philadelphia crust + $",
             "Italian-crafted base + $"});
-            this.chlbExtra.Location = new System.Drawing.Point(45, 412);
+            this.chlbExtra.Location = new System.Drawing.Point(45, 399);
             this.chlbExtra.Name = "chlbExtra";
-            this.chlbExtra.Size = new System.Drawing.Size(261, 190);
+            this.chlbExtra.Size = new System.Drawing.Size(261, 171);
             this.chlbExtra.TabIndex = 4;
             this.chlbExtra.UseCompatibleTextRendering = true;
-            this.chlbExtra.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
+            this.chlbExtra.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ChlbExtra_ItemCheck);
             // 
             // btnToServer
             // 
@@ -140,8 +140,11 @@
             "Calzone",
             "Hawaii",
             "Pepperoni",
-            "Vegan"});
-            this.comboBoxPizza.Location = new System.Drawing.Point(45, 265);
+            "Vegan",
+            "Quatro Formaggio",
+            "Salame",
+            "Rustica"});
+            this.comboBoxPizza.Location = new System.Drawing.Point(45, 201);
             this.comboBoxPizza.Name = "comboBoxPizza";
             this.comboBoxPizza.Size = new System.Drawing.Size(261, 28);
             this.comboBoxPizza.TabIndex = 9;
@@ -171,9 +174,9 @@
             // 
             this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listViewReadyOrders.HideSelection = false;
-            this.listViewReadyOrders.Location = new System.Drawing.Point(243, 26);
+            this.listViewReadyOrders.Location = new System.Drawing.Point(261, 23);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
-            this.listViewReadyOrders.Size = new System.Drawing.Size(689, 97);
+            this.listViewReadyOrders.Size = new System.Drawing.Size(496, 97);
             this.listViewReadyOrders.TabIndex = 28;
             this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
             // 
@@ -246,7 +249,7 @@
             // pbLargePizza
             // 
             this.pbLargePizza.Image = ((System.Drawing.Image)(resources.GetObject("pbLargePizza.Image")));
-            this.pbLargePizza.Location = new System.Drawing.Point(191, 299);
+            this.pbLargePizza.Location = new System.Drawing.Point(191, 255);
             this.pbLargePizza.Name = "pbLargePizza";
             this.pbLargePizza.Size = new System.Drawing.Size(115, 107);
             this.pbLargePizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -257,7 +260,7 @@
             // pbMediumPizza
             // 
             this.pbMediumPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbMediumPizza.Image")));
-            this.pbMediumPizza.Location = new System.Drawing.Point(101, 313);
+            this.pbMediumPizza.Location = new System.Drawing.Point(101, 269);
             this.pbMediumPizza.Name = "pbMediumPizza";
             this.pbMediumPizza.Size = new System.Drawing.Size(84, 80);
             this.pbMediumPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,7 +271,7 @@
             // pbSmallPizza
             // 
             this.pbSmallPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbSmallPizza.Image")));
-            this.pbSmallPizza.Location = new System.Drawing.Point(45, 333);
+            this.pbSmallPizza.Location = new System.Drawing.Point(45, 289);
             this.pbSmallPizza.Name = "pbSmallPizza";
             this.pbSmallPizza.Size = new System.Drawing.Size(50, 49);
             this.pbSmallPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -279,7 +282,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(45, 61);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(187, 152);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -351,12 +354,25 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "Ordered Items:";
             // 
+            // btnServed
+            // 
+            this.btnServed.FlatAppearance.BorderSize = 5;
+            this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServed.Location = new System.Drawing.Point(790, 47);
+            this.btnServed.Name = "btnServed";
+            this.btnServed.Size = new System.Drawing.Size(128, 53);
+            this.btnServed.TabIndex = 36;
+            this.btnServed.Text = "Served";
+            this.btnServed.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(999, 608);
+            this.Controls.Add(this.btnServed);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbSchweppes);
             this.Controls.Add(this.lbLipton);
@@ -427,6 +443,7 @@
         private System.Windows.Forms.Label lbLipton;
         private System.Windows.Forms.Label lbSchweppes;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnServed;
     }
 }
 
