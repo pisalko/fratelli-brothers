@@ -15,39 +15,38 @@ import argparse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 class S(BaseHTTPRequestHandler):
+
+    post_data = "" 
+    message = ""
+
     def _set_headers(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-
-   # def _html(self, message):
-        """This just generates an HTML document that includes `message`
-        in the body. Override, or re-write this do do more interesting stuff.
-        """
-    #    content = f"<html><body><h1>{message}</h1></body></html>"
-    #    return content.encode("utf8")  # NOTE: must return a bytes object!
+    
 
     def do_GET(self):
+        global post_data #"Hi!"
+        global message
         self._set_headers()
-
-        message = "Hi!"
+        #message = "Hello this is server!"
+        print(message) #If VARmessage is the same as last get request, we send "No new orders"String and if message is not the same, we send new order
         b = bytearray()
-        b.extend(map(ord, message))
-
+        b.extend(message) #Either a string that says on order yet
         self.wfile.write(b)
 
-    #def do_HEAD(self):
-     #   self._set_headers()
-
     def do_POST(self):
+        global post_data
+        global message
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
+        #post_data = post_data[2:-1]
         print (post_data)
-        post_data = post_data
-        self._set_headers()
-        #self.wfile.write(b"<html><body><h1>POST!</h1></body></html>")
+        self._set_headers()        
+        message = post_data
+        
 
-def run(server_class=HTTPServer, handler_class=S, addr="10.28.109.112", port=42069):
+def run(server_class=HTTPServer, handler_class=S, addr="145.93.60.104", port=42069):
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
 
@@ -60,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-l",
         "--listen",
-        default="10.28.109.112",
+        default="145.93.60.104",
         help="Specify the IP address on which the server listens",
     )
     parser.add_argument(

@@ -1,0 +1,9 @@
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.exe.config
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.exe
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.pdb
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csprojAssemblyReference.cache
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.Form1.resources
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.Properties.Resources.resources
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csproj.GenerateResource.cache
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.exe
+C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.pdb

@@ -30,13 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btnAddToOrder = new System.Windows.Forms.Button();
-            this.listBoxOrder = new System.Windows.Forms.ListBox();
+            this.listBoxPizzas = new System.Windows.Forms.ListBox();
             this.chlbExtra = new System.Windows.Forms.CheckedListBox();
             this.btnToServer = new System.Windows.Forms.Button();
             this.comboBoxPizza = new System.Windows.Forms.ComboBox();
-            this.textBoxPreferences = new System.Windows.Forms.TextBox();
-            this.lbPreferences = new System.Windows.Forms.Label();
             this.listViewReadyOrders = new System.Windows.Forms.ListView();
             this.pbLipton = new System.Windows.Forms.PictureBox();
             this.pbSchweppes = new System.Windows.Forms.PictureBox();
@@ -69,29 +66,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAddToOrder
+            // listBoxPizzas
             // 
-            this.btnAddToOrder.FlatAppearance.BorderSize = 5;
-            this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToOrder.Location = new System.Drawing.Point(393, 508);
-            this.btnAddToOrder.Name = "btnAddToOrder";
-            this.btnAddToOrder.Size = new System.Drawing.Size(217, 62);
-            this.btnAddToOrder.TabIndex = 1;
-            this.btnAddToOrder.Text = "Add to order";
-            this.btnAddToOrder.UseVisualStyleBackColor = true;
-            this.btnAddToOrder.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // listBoxOrder
-            // 
-            this.listBoxOrder.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.listBoxOrder.FormattingEnabled = true;
-            this.listBoxOrder.ItemHeight = 16;
-            this.listBoxOrder.Location = new System.Drawing.Point(703, 172);
-            this.listBoxOrder.Name = "listBoxOrder";
-            this.listBoxOrder.Size = new System.Drawing.Size(255, 324);
-            this.listBoxOrder.TabIndex = 3;
-            this.listBoxOrder.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxPizzas.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.listBoxPizzas.FormattingEnabled = true;
+            this.listBoxPizzas.ItemHeight = 16;
+            this.listBoxPizzas.Location = new System.Drawing.Point(703, 172);
+            this.listBoxPizzas.Name = "listBoxPizzas";
+            this.listBoxPizzas.Size = new System.Drawing.Size(255, 292);
+            this.listBoxPizzas.TabIndex = 3;
+            this.listBoxPizzas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // chlbExtra
             // 
@@ -111,7 +95,7 @@
             "Extra rucola + $",
             "Philadelphia crust + $",
             "Italian-crafted base + $"});
-            this.chlbExtra.Location = new System.Drawing.Point(45, 399);
+            this.chlbExtra.Location = new System.Drawing.Point(45, 375);
             this.chlbExtra.Name = "chlbExtra";
             this.chlbExtra.Size = new System.Drawing.Size(261, 171);
             this.chlbExtra.TabIndex = 4;
@@ -123,7 +107,7 @@
             this.btnToServer.FlatAppearance.BorderSize = 5;
             this.btnToServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToServer.Location = new System.Drawing.Point(703, 512);
+            this.btnToServer.Location = new System.Drawing.Point(703, 483);
             this.btnToServer.Name = "btnToServer";
             this.btnToServer.Size = new System.Drawing.Size(255, 63);
             this.btnToServer.TabIndex = 8;
@@ -153,26 +137,6 @@
             this.comboBoxPizza.TabIndex = 9;
             this.comboBoxPizza.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizza_SelectedIndexChanged);
             // 
-            // textBoxPreferences
-            // 
-            this.textBoxPreferences.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.textBoxPreferences.Location = new System.Drawing.Point(393, 201);
-            this.textBoxPreferences.Multiline = true;
-            this.textBoxPreferences.Name = "textBoxPreferences";
-            this.textBoxPreferences.Size = new System.Drawing.Size(217, 81);
-            this.textBoxPreferences.TabIndex = 10;
-            this.textBoxPreferences.TextChanged += new System.EventHandler(this.textBoxPreferences_TextChanged);
-            // 
-            // lbPreferences
-            // 
-            this.lbPreferences.AutoSize = true;
-            this.lbPreferences.Location = new System.Drawing.Point(390, 166);
-            this.lbPreferences.Name = "lbPreferences";
-            this.lbPreferences.Size = new System.Drawing.Size(357, 17);
-            this.lbPreferences.TabIndex = 11;
-            this.lbPreferences.Text = "Any special preferences/request,\\r\\n please enter here:";
-            this.lbPreferences.Click += new System.EventHandler(this.Label1_Click);
-            // 
             // listViewReadyOrders
             // 
             this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
@@ -186,7 +150,7 @@
             // pbLipton
             // 
             this.pbLipton.Image = global::SmallestFibonachiNumber.Properties.Resources._69665995_482211882624268_5173394039105388544_n;
-            this.pbLipton.Location = new System.Drawing.Point(463, 415);
+            this.pbLipton.Location = new System.Drawing.Point(477, 282);
             this.pbLipton.Name = "pbLipton";
             this.pbLipton.Size = new System.Drawing.Size(87, 80);
             this.pbLipton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -197,7 +161,7 @@
             // pbSchweppes
             // 
             this.pbSchweppes.Image = global::SmallestFibonachiNumber.Properties.Resources.schweps;
-            this.pbSchweppes.Location = new System.Drawing.Point(565, 415);
+            this.pbSchweppes.Location = new System.Drawing.Point(579, 282);
             this.pbSchweppes.Name = "pbSchweppes";
             this.pbSchweppes.Size = new System.Drawing.Size(87, 80);
             this.pbSchweppes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +172,7 @@
             // pbJuice
             // 
             this.pbJuice.Image = global::SmallestFibonachiNumber.Properties.Resources._57154590_828536920833012_710430390107504640_n;
-            this.pbJuice.Location = new System.Drawing.Point(357, 415);
+            this.pbJuice.Location = new System.Drawing.Point(371, 282);
             this.pbJuice.Name = "pbJuice";
             this.pbJuice.Size = new System.Drawing.Size(87, 80);
             this.pbJuice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -219,7 +183,7 @@
             // pbPepsi
             // 
             this.pbPepsi.Image = global::SmallestFibonachiNumber.Properties.Resources._70866405_242230256702466_3159342780040347648_n;
-            this.pbPepsi.Location = new System.Drawing.Point(463, 314);
+            this.pbPepsi.Location = new System.Drawing.Point(477, 181);
             this.pbPepsi.Name = "pbPepsi";
             this.pbPepsi.Size = new System.Drawing.Size(87, 80);
             this.pbPepsi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -230,7 +194,7 @@
             // pbFanta
             // 
             this.pbFanta.Image = global::SmallestFibonachiNumber.Properties.Resources.fanta;
-            this.pbFanta.Location = new System.Drawing.Point(565, 314);
+            this.pbFanta.Location = new System.Drawing.Point(579, 181);
             this.pbFanta.Name = "pbFanta";
             this.pbFanta.Size = new System.Drawing.Size(87, 80);
             this.pbFanta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -241,7 +205,7 @@
             // pbCola
             // 
             this.pbCola.Image = global::SmallestFibonachiNumber.Properties.Resources._60317512_2715900981758696_5188495698168905728_n1;
-            this.pbCola.Location = new System.Drawing.Point(357, 314);
+            this.pbCola.Location = new System.Drawing.Point(371, 181);
             this.pbCola.Name = "pbCola";
             this.pbCola.Size = new System.Drawing.Size(87, 80);
             this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -296,7 +260,7 @@
             // lbCola
             // 
             this.lbCola.AutoSize = true;
-            this.lbCola.Location = new System.Drawing.Point(358, 296);
+            this.lbCola.Location = new System.Drawing.Point(372, 163);
             this.lbCola.Name = "lbCola";
             this.lbCola.Size = new System.Drawing.Size(16, 17);
             this.lbCola.TabIndex = 29;
@@ -305,7 +269,7 @@
             // lbPepsi
             // 
             this.lbPepsi.AutoSize = true;
-            this.lbPepsi.Location = new System.Drawing.Point(464, 296);
+            this.lbPepsi.Location = new System.Drawing.Point(478, 163);
             this.lbPepsi.Name = "lbPepsi";
             this.lbPepsi.Size = new System.Drawing.Size(16, 17);
             this.lbPepsi.TabIndex = 30;
@@ -314,7 +278,7 @@
             // lbFanta
             // 
             this.lbFanta.AutoSize = true;
-            this.lbFanta.Location = new System.Drawing.Point(562, 296);
+            this.lbFanta.Location = new System.Drawing.Point(576, 163);
             this.lbFanta.Name = "lbFanta";
             this.lbFanta.Size = new System.Drawing.Size(16, 17);
             this.lbFanta.TabIndex = 31;
@@ -324,7 +288,7 @@
             // lbJuice
             // 
             this.lbJuice.AutoSize = true;
-            this.lbJuice.Location = new System.Drawing.Point(354, 397);
+            this.lbJuice.Location = new System.Drawing.Point(368, 264);
             this.lbJuice.Name = "lbJuice";
             this.lbJuice.Size = new System.Drawing.Size(16, 17);
             this.lbJuice.TabIndex = 32;
@@ -333,7 +297,7 @@
             // lbLipton
             // 
             this.lbLipton.AutoSize = true;
-            this.lbLipton.Location = new System.Drawing.Point(460, 397);
+            this.lbLipton.Location = new System.Drawing.Point(474, 264);
             this.lbLipton.Name = "lbLipton";
             this.lbLipton.Size = new System.Drawing.Size(16, 17);
             this.lbLipton.TabIndex = 33;
@@ -342,7 +306,7 @@
             // lbSchweppes
             // 
             this.lbSchweppes.AutoSize = true;
-            this.lbSchweppes.Location = new System.Drawing.Point(562, 397);
+            this.lbSchweppes.Location = new System.Drawing.Point(576, 264);
             this.lbSchweppes.Name = "lbSchweppes";
             this.lbSchweppes.Size = new System.Drawing.Size(16, 17);
             this.lbSchweppes.TabIndex = 34;
@@ -353,9 +317,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(700, 152);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 17);
+            this.label8.Size = new System.Drawing.Size(103, 17);
             this.label8.TabIndex = 35;
-            this.label8.Text = "Ordered Items:";
+            this.label8.Text = "Ordered Pizza:";
             // 
             // btnServed
             // 
@@ -380,7 +344,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(999, 608);
+            this.ClientSize = new System.Drawing.Size(999, 573);
             this.Controls.Add(this.btnServed);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbSchweppes);
@@ -400,13 +364,10 @@
             this.Controls.Add(this.pbMediumPizza);
             this.Controls.Add(this.pbSmallPizza);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbPreferences);
-            this.Controls.Add(this.textBoxPreferences);
             this.Controls.Add(this.comboBoxPizza);
             this.Controls.Add(this.btnToServer);
             this.Controls.Add(this.chlbExtra);
-            this.Controls.Add(this.listBoxOrder);
-            this.Controls.Add(this.btnAddToOrder);
+            this.Controls.Add(this.listBoxPizzas);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Fratelli Pizza Interface Cashier";
@@ -427,13 +388,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAddToOrder;
-        private System.Windows.Forms.ListBox listBoxOrder;
+        private System.Windows.Forms.ListBox listBoxPizzas;
         private System.Windows.Forms.CheckedListBox chlbExtra;
         private System.Windows.Forms.Button btnToServer;
         private System.Windows.Forms.ComboBox comboBoxPizza;
-        private System.Windows.Forms.TextBox textBoxPreferences;
-        private System.Windows.Forms.Label lbPreferences;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbSmallPizza;
         private System.Windows.Forms.PictureBox pbMediumPizza;
