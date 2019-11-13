@@ -54,7 +54,7 @@ namespace SmallestFibonachiNumber
         }
 
         //POST request sending string to server
-        private void POSTrequest(string uri)
+        private void POSTrequest(string uri, String order)
         {
             WebRequest request = WebRequest.Create(uri);
             // Set the Method property of the request to POST.
@@ -73,7 +73,7 @@ namespace SmallestFibonachiNumber
                 textBox1.Text = null;
             }*/
 
-            byte[] buffer = Encoding.UTF8.GetBytes(postData);
+            byte[] buffer = Encoding.UTF8.GetBytes(order);
             // Set the ContentType property of the WebRequest.
             request.ContentType = "Mario's Interface";
             // Set the ContentLength property of the WebRequest. 
@@ -172,7 +172,12 @@ namespace SmallestFibonachiNumber
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            //POSTrequest("http://145.93.61.233:42069");
+            String order = "";
+            for(int i = 0; i < listBoxOrder.Items.Count; i -= -1)
+            {
+                order += listBoxOrder.Items[i] + "\n";
+            }
+            POSTrequest("http://10.28.109.112:42069", order);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,23 +220,27 @@ namespace SmallestFibonachiNumber
             //pizzaSize = <sizeString>; this to be passed to server*/
         }
 
-        bool once2 = true;
+        
             
         private void ChlbExtra_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             
             if (pizzaSizeCh)
             {
-                
-                if (once2)
-                {
-                    listBoxOrder.Items.Add("Extras:");
-                    once2 = false;
-                }
+
+                if (chlbExtra.CheckedItems.Count == 0 && !(listBoxOrder.Items.Contains("Extras:")))               
+                    listBoxOrder.Items.Add("Extras:");                
+                 
+
                 if (e.NewValue == CheckState.Checked)
-                    listBoxOrder.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                        listBoxOrder.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
                 if (e.NewValue == CheckState.Unchecked)
+                {
                     listBoxOrder.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                    //if (chlbExtra.Items.Count == 0 && listBoxOrder.Items.Contains("Extras:"))
+                   //     listBoxOrder.Items.Remove("Extras:");
+                }
+
             }
             else
             {
@@ -242,13 +251,27 @@ namespace SmallestFibonachiNumber
 
         private void textBoxPreferences_TextChanged(object sender, EventArgs e)
         {
-            
+            /*if (textBoxPreferences.TextLength == 0)
+            {
+                int indexOfPref = listBoxOrder.Items.IndexOf("Preferences: ");
+                listBoxOrder.Items.Remove("Preferences: ");
+            }
+            else
+            {
+                if(!listBoxOrder.Items.Contains(textBoxPreferences.Text))                                  //NEED VLADO'S HELP
+                listBoxOrder.Items.Add(textBoxPreferences.Text);
+                else
+                {
+
+                    listBoxOrder.Items[listBoxOrder.Items.IndexOf(textBoxPreferences.Text)] = textBoxPreferences.Text;
+                }
+            }*/
         }
 
         private void constantChecks_Tick(object sender, EventArgs e)
         {
             if (chlbExtra.CheckedItems.Count == 0)
-                listBoxOrder.Items.Remove("Extras:");
+                listBoxOrder.Items.Remove("Extras:");                                                        //NEED VLADO'S HELP
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

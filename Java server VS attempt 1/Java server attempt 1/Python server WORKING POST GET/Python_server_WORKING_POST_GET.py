@@ -43,10 +43,11 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         print (post_data)
+        post_data = post_data
         self._set_headers()
         #self.wfile.write(b"<html><body><h1>POST!</h1></body></html>")
 
-def run(server_class=HTTPServer, handler_class=S, addr="145.93.61.130", port=42069):
+def run(server_class=HTTPServer, handler_class=S, addr="10.28.109.112", port=42069):
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
 
@@ -59,7 +60,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-l",
         "--listen",
-        default="145.93.61.130",
+        default="10.28.109.112",
         help="Specify the IP address on which the server listens",
     )
     parser.add_argument(

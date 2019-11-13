@@ -92,12 +92,12 @@ namespace Java_server_attempt_1
 
         private void BtnSendToServer_Click(object sender, EventArgs e)
         {
-            POSTrequest("http://145.93.61.130:42069");
+            POSTrequest("http://10.28.109.112:42069");
         }
 
         private void btnGETrequest_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(GETrequest("http://145.93.61.130:42069"));
+            listBox1.Items.Add(GETrequest("http://10.28.109.112:42069"));
         }
     }
 }
