@@ -77,29 +77,31 @@ namespace Luigi_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Remove(listBox1.SelectedItem);
         }
 
         bool once = true;
-
+        String oldText = "";
+        String orderFromServer = "";
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            String oldText = "";
-            String orderFromServer = "";
+            
             if (once)
             {
-                orderFromServer = GETrequest("http://145.93.60.104:42069");
+                orderFromServer = GETrequest("http://192.168.88.250:42069");
                 oldText = orderFromServer;
                 once = false;
             }
-            orderFromServer = GETrequest("http://145.93.60.104:42069");
-            if (oldText != orderFromServer)
+
+            orderFromServer = GETrequest("http://192.168.88.250:42069");
+            bool checkIfNewOrder = oldText != orderFromServer;
+            
+            if (checkIfNewOrder)
             {
                 oldText = orderFromServer;
                 listBox1.Items.Add(oldText);
             }
-
-            
 
         }
     }

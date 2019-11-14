@@ -4,11 +4,12 @@ const int LED3B = 6;
 const int LED4Y = 7;
 const int KEY1 = 8;
 const int KEY2 = 9;
-const int LDR = A2;
+const int LDR = A2; //A2 in arduino, A0 in ESP with jumper cable
 
 unsigned long debounceTimer = 0;
 int ldrEnv, ldrEnvNow, counterPizza = 0;
 bool lock = false;
+bool key1State, key1OldState, key1Click, key2State, key2OldState, key2Click = true;
 
 void setup() {
   // put your setup code here, to run once:
@@ -64,8 +65,10 @@ void loop()
   if (key1Click && !key1State)
   {
     ldrEnv = analogRead(LDR);
+    //Serial.println("key1Press");
   }
-
+  
+ldrEnvNow = analogRead(LDR);
   if (ldrEnvNow < ldrEnv - 50)
   {
     if (lock)
@@ -77,7 +80,7 @@ void loop()
   }
   else
   {
-    lock = true
+    lock = true;
   }
 
 

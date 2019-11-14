@@ -54,6 +54,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnServed = new System.Windows.Forms.Button();
             this.constantChecks = new System.Windows.Forms.Timer(this.components);
+            this.lbPizzasOrderedToday = new System.Windows.Forms.Label();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -71,7 +73,7 @@
             this.listBoxPizzas.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listBoxPizzas.FormattingEnabled = true;
             this.listBoxPizzas.ItemHeight = 16;
-            this.listBoxPizzas.Location = new System.Drawing.Point(703, 172);
+            this.listBoxPizzas.Location = new System.Drawing.Point(705, 181);
             this.listBoxPizzas.Name = "listBoxPizzas";
             this.listBoxPizzas.Size = new System.Drawing.Size(255, 292);
             this.listBoxPizzas.TabIndex = 3;
@@ -88,11 +90,11 @@
             this.chlbExtra.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chlbExtra.Items.AddRange(new object[] {
             "Extra Tomato sauce + $",
-            "Extra mushrooms + $",
-            "Extra onions + $",
-            "Extra olives + $",
-            "Extra cheese + $",
-            "Extra rucola + $",
+            "Extra Mushrooms + $",
+            "Extra Onions + $",
+            "Extra Olives + $",
+            "Extra Cheese + $",
+            "Extra Rucola + $",
             "Philadelphia crust + $",
             "Italian-crafted base + $"});
             this.chlbExtra.Location = new System.Drawing.Point(45, 375);
@@ -107,7 +109,7 @@
             this.btnToServer.FlatAppearance.BorderSize = 5;
             this.btnToServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToServer.Location = new System.Drawing.Point(703, 483);
+            this.btnToServer.Location = new System.Drawing.Point(705, 492);
             this.btnToServer.Name = "btnToServer";
             this.btnToServer.Size = new System.Drawing.Size(255, 63);
             this.btnToServer.TabIndex = 8;
@@ -128,7 +130,7 @@
             "Hawaii",
             "Pepperoni",
             "Vegan",
-            "Quatro Formaggio",
+            "Salami",
             "Salame",
             "Rustica"});
             this.comboBoxPizza.Location = new System.Drawing.Point(45, 201);
@@ -140,12 +142,14 @@
             // listViewReadyOrders
             // 
             this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.listViewReadyOrders.GridLines = true;
             this.listViewReadyOrders.HideSelection = false;
             this.listViewReadyOrders.Location = new System.Drawing.Point(261, 23);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
-            this.listViewReadyOrders.Size = new System.Drawing.Size(496, 97);
+            this.listViewReadyOrders.Size = new System.Drawing.Size(496, 126);
             this.listViewReadyOrders.TabIndex = 28;
             this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
+            this.listViewReadyOrders.View = System.Windows.Forms.View.Tile;
             // 
             // pbLipton
             // 
@@ -315,7 +319,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(700, 152);
+            this.label8.Location = new System.Drawing.Point(702, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 17);
             this.label8.TabIndex = 35;
@@ -326,12 +330,13 @@
             this.btnServed.FlatAppearance.BorderSize = 5;
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServed.Location = new System.Drawing.Point(790, 47);
+            this.btnServed.Location = new System.Drawing.Point(791, 58);
             this.btnServed.Name = "btnServed";
             this.btnServed.Size = new System.Drawing.Size(128, 53);
             this.btnServed.TabIndex = 36;
             this.btnServed.Text = "Served";
             this.btnServed.UseVisualStyleBackColor = true;
+            this.btnServed.Click += new System.EventHandler(this.btnServed_Click);
             // 
             // constantChecks
             // 
@@ -339,12 +344,27 @@
             this.constantChecks.Interval = 30;
             this.constantChecks.Tick += new System.EventHandler(this.constantChecks_Tick);
             // 
+            // lbPizzasOrderedToday
+            // 
+            this.lbPizzasOrderedToday.AutoSize = true;
+            this.lbPizzasOrderedToday.Location = new System.Drawing.Point(12, 9);
+            this.lbPizzasOrderedToday.Name = "lbPizzasOrderedToday";
+            this.lbPizzasOrderedToday.Size = new System.Drawing.Size(46, 17);
+            this.lbPizzasOrderedToday.TabIndex = 37;
+            this.lbPizzasOrderedToday.Text = "label1";
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.PortName = "COM4";
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(999, 573);
+            this.Controls.Add(this.lbPizzasOrderedToday);
             this.Controls.Add(this.btnServed);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbSchweppes);
@@ -371,6 +391,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Fratelli Pizza Interface Cashier";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).EndInit();
@@ -412,6 +433,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnServed;
         private System.Windows.Forms.Timer constantChecks;
+        private System.Windows.Forms.Label lbPizzasOrderedToday;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 

@@ -19,16 +19,25 @@ namespace SmallestFibonachiNumber
 
         public Form1()
         {
-            InitializeComponent();
-            
+            try
+            {
+                InitializeComponent();
+                lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
+                serialPort1.Open();
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show(errors.ToString());
+            }
         }
-        String orderOnScreen;
-        String orderBtwApps;
 
-        bool pizzaTypeCh, pizzaSizeCh, pizzaExtraCh = false;
+        String textInPort;
+        List<String> dataSentToServer = new List<String>();
 
-        int size = 1;
-        int counterOrdersPerCustomers = 0;
+        bool pizzaTypeCh, pizzaSizeCh, ifDataReceived = false;
+
+        
+        int ordersForTheDay, pizzaNumber = 0;
 
         private void DrinksCounter(Label lb, MouseEventArgs e)
         {
@@ -168,12 +177,38 @@ namespace SmallestFibonachiNumber
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            String order = "";
-            for(int i = 0; i < listBoxPizzas.Items.Count; i++)
+            if (!pizzaTypeCh && !pizzaSizeCh)
             {
-                order += listBoxPizzas.Items[i] + "*";
+                MessageBox.Show("Why are you trying to send an empty order ?");
             }
-            POSTrequest("http://145.93.60.104:42069", order);
+            else
+            {
+                ordersForTheDay++;
+            String order = "";
+            for(int i = 0; i < dataSentToServer.Count; i++)
+            {
+                int lengthLineList = dataSentToServer[i].Length;
+
+                if(i == 0)
+                {
+                    order += dataSentToServer[i].PadRight(16);
+                }
+                else if (i == 1)
+                {
+                    order += dataSentToServer[i].PadRight(12);
+                }
+                else if (i > 1 && i < dataSentToServer.Count)
+                {
+                    order += dataSentToServer[i];
+                }
+                
+            }
+            order = order.PadRight(137);
+            order += ordersForTheDay.ToString();
+            
+                POSTrequest("http://192.168.88.250:42069", order);
+                lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,9 +220,15 @@ namespace SmallestFibonachiNumber
         {
             pizzaTypeCh = true;
             if (listBoxPizzas.Items.Count == 0)
+            {
                 listBoxPizzas.Items.Add("Pizza type: " + comboBoxPizza.Text);
+                dataSentToServer.Add(comboBoxPizza.Text);// + "    "); //!!!
+            }
             else
+            {
                 listBoxPizzas.Items[0] = "Pizza type: " + comboBoxPizza.Text;
+                dataSentToServer[0] = comboBoxPizza.Text;// + "    ";
+            }
 
             /*listBoxOrder.Items[0] = "Pizza type: " + comboBoxPizza.Text;
             //pizzaType = < pizzaName >; this to be passed to server*/
@@ -200,11 +241,13 @@ namespace SmallestFibonachiNumber
                 if (listBoxPizzas.Items.Count == 1)
                 {
                     listBoxPizzas.Items.Add("Pizza size: Small");
+                    dataSentToServer.Add("Small");//("/    Small    /    ");
                     pizzaSizeCh = true;
                 }
                 else
                 {
                     listBoxPizzas.Items[1] = "Pizza size: Small";
+                    dataSentToServer[1] = "Small";//"/    Small    /    ";
                     pizzaSizeCh = true;
                 }
             }
@@ -227,16 +270,44 @@ namespace SmallestFibonachiNumber
                 {
 
                     if (chlbExtra.CheckedItems.Count == 1 && !(listBoxPizzas.Items.Contains("Extras:")))
+                    {
                         listBoxPizzas.Items.Add("Extras:");
+                        dataSentToServer.Add("Extras: ");
+                    }
 
 
                     if (e.NewValue == CheckState.Checked)
+                    {
+                        String addedToList = "";
                         listBoxPizzas.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                        if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                        {
+                            addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
+                                                 
+                            dataSentToServer.Add(addedToList);
+
+                        }
+                        else
+                            dataSentToServer.Add((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
+                    }
                     if (e.NewValue == CheckState.Unchecked)
                     {
+                        String addedToList = "";
                         listBoxPizzas.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                        if((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                        {
+                            addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
+                            dataSentToServer.Remove(addedToList);
+
+                        }
+                        else
+                        dataSentToServer.Remove((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
+
                         if (chlbExtra.CheckedItems.Count == 0 && listBoxPizzas.Items.Contains("Extras:"))
+                        {
                             listBoxPizzas.Items.Remove("Extras:");
+                            dataSentToServer.Remove("Extras: ");
+                        }
                     }
                 }));
             }
@@ -254,12 +325,51 @@ namespace SmallestFibonachiNumber
 
         private void constantChecks_Tick(object sender, EventArgs e)
         {
-           
+            //maybe check for changes with get request later
+            if (ifDataReceived)
+            {
+                listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
+                ifDataReceived = false;
+            }
         }
 
         private void listBoxDrinks_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+           //MessageBox.Show("");
+            textInPort = serialPort1.ReadLine();
+            textInPort.Trim();
+            textInPort = textInPort.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
+
+            pizzaNumber = Convert.ToInt32(textInPort);
+
+            ifDataReceived = true;
+        }
+
+        private void btnServed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listViewReadyOrders.SelectedItems[0].Remove();
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show("Please select an item !");
+            }
+        }
+
+       // private void button1_Click_1(object sender, EventArgs e)
+        //{
+       //     listViewReadyOrders.Items.Add("1aaaaaaaaaaaaaaaaaaaaaa1");
+       // }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            serialPort1.Close();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -269,11 +379,13 @@ namespace SmallestFibonachiNumber
                 if (listBoxPizzas.Items.Count == 1)
                 {
                     listBoxPizzas.Items.Add("Pizza size: Medium");
+                    dataSentToServer.Add("Medium");
                     pizzaSizeCh = true;
                 }
                 else
                 {
                     listBoxPizzas.Items[1] = "Pizza size: Medium";
+                    dataSentToServer[1] = "Medium";
                     pizzaSizeCh = true;
                 }
             }
@@ -292,11 +404,13 @@ namespace SmallestFibonachiNumber
                 if (listBoxPizzas.Items.Count == 1)
                 {
                     listBoxPizzas.Items.Add("Pizza size: Large");
+                    dataSentToServer.Add("Large");
                     pizzaSizeCh = true;
                 }
                 else
                 {
                     listBoxPizzas.Items[1] = "Pizza size: Large";
+                    dataSentToServer[1] = "Large";
                     pizzaSizeCh = true;
                 }
             }

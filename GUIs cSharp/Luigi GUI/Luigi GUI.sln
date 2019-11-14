@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luigi GUI", "Luigi GUI.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShopGUI", "..\SmallestFibonachiNumber\PizzaShopGUI.csproj", "{EEDFB422-CA7A-4423-9FA6-B691ED42D239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nursing Bed Alarm", "..\..\..\..\GITHUB\Personal-Projects-Fontys\embedded systems\arduino projects\VS projects\Nursing Bed Alarm\Nursing Bed Alarm.csproj", "{1733F43F-113F-4872-987F-50750DD8514C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEDFB422-CA7A-4423-9FA6-B691ED42D239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1733F43F-113F-4872-987F-50750DD8514C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1733F43F-113F-4872-987F-50750DD8514C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1733F43F-113F-4872-987F-50750DD8514C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1733F43F-113F-4872-987F-50750DD8514C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
