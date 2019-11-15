@@ -206,10 +206,17 @@ namespace SmallestFibonachiNumber
             order = order.PadRight(137);
             order += ordersForTheDay.ToString();
             
-                POSTrequest("http://192.168.88.250:42069", order);
+                POSTrequest("http://145.93.76.171:42069", order);
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
             }
+            listBoxPizzas.Items.Clear();
+            for (int i = 0; i < chlbExtra.Items.Count; i++)
+            {
+                chlbExtra.SetItemChecked(i, false);
+            }
         }
+
+       
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,28 +243,34 @@ namespace SmallestFibonachiNumber
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (pizzaTypeCh)
+            try
             {
-                if (listBoxPizzas.Items.Count == 1)
+                if (pizzaTypeCh)
                 {
-                    listBoxPizzas.Items.Add("Pizza size: Small");
-                    dataSentToServer.Add("Small");//("/    Small    /    ");
-                    pizzaSizeCh = true;
+                    if (listBoxPizzas.Items.Count == 1)
+                    {
+                        listBoxPizzas.Items.Add("Pizza size: Small");
+                        dataSentToServer.Add("Small");
+                        pizzaSizeCh = true;
+                    }
+                    else
+                    {
+                        listBoxPizzas.Items[1] = "Pizza size: Small";
+                        dataSentToServer[1] = "Small";
+                        pizzaSizeCh = true;
+                    }
                 }
                 else
                 {
-                    listBoxPizzas.Items[1] = "Pizza size: Small";
-                    dataSentToServer[1] = "Small";//"/    Small    /    ";
-                    pizzaSizeCh = true;
+                    MessageBox.Show("Please select pizza type first!");
                 }
-            }
-            else
+                /*listBoxOrder.Items[1] = "Pizza size: Small";
+                //pizzaSize = <sizeString>; this to be passed to server*/
+            } catch (Exception errors)
             {
-                MessageBox.Show("Please select pizza type first!");
+                MessageBox.Show("Please follow the order!");
             }
-            /*listBoxOrder.Items[1] = "Pizza size: Small";
-            //pizzaSize = <sizeString>; this to be passed to server*/
-        }
+            }
 
         
             
@@ -374,52 +387,65 @@ namespace SmallestFibonachiNumber
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (pizzaTypeCh)
+            try
             {
-                if (listBoxPizzas.Items.Count == 1)
+                if (pizzaTypeCh)
                 {
-                    listBoxPizzas.Items.Add("Pizza size: Medium");
-                    dataSentToServer.Add("Medium");
-                    pizzaSizeCh = true;
+                    if (listBoxPizzas.Items.Count == 1)
+                    {
+                        listBoxPizzas.Items.Add("Pizza size: Medium");
+                        dataSentToServer.Add("Medium");
+                        pizzaSizeCh = true;
+                    }
+                    else
+                    {
+                        listBoxPizzas.Items[1] = "Pizza size: Medium";
+                        dataSentToServer[1] = "Medium";
+                        pizzaSizeCh = true;
+                    }
                 }
                 else
                 {
-                    listBoxPizzas.Items[1] = "Pizza size: Medium";
-                    dataSentToServer[1] = "Medium";
-                    pizzaSizeCh = true;
+                    MessageBox.Show("Please select pizza type first!");
                 }
-            }
-            else
+                /*listBoxOrder.Items[1] = "Pizza size: Medium";
+                //pizzaSize = <sizeString>; this to be passed to server*/
+            } catch (Exception error)
             {
-                MessageBox.Show("Please select pizza type first!");
+                MessageBox.Show("Please follow the order!");
             }
-            /*listBoxOrder.Items[1] = "Pizza size: Medium";
-            //pizzaSize = <sizeString>; this to be passed to server*/
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            if (pizzaTypeCh)
+            try
             {
-                if (listBoxPizzas.Items.Count == 1)
+                if (pizzaTypeCh)
                 {
-                    listBoxPizzas.Items.Add("Pizza size: Large");
-                    dataSentToServer.Add("Large");
-                    pizzaSizeCh = true;
+                    if (listBoxPizzas.Items.Count == 1)
+                    {
+                        listBoxPizzas.Items.Add("Pizza size: Large");
+                        dataSentToServer.Add("Large");
+                        pizzaSizeCh = true;
+                    }
+                    else
+                    {
+                        listBoxPizzas.Items[1] = "Pizza size: Large";
+                        dataSentToServer[1] = "Large";
+                        pizzaSizeCh = true;
+                    }
                 }
                 else
                 {
-                    listBoxPizzas.Items[1] = "Pizza size: Large";
-                    dataSentToServer[1] = "Large";
-                    pizzaSizeCh = true;
+                    MessageBox.Show("Please select pizza type first!");
                 }
+                /*listBoxOrder.Items[1] = "Pizza size: Large";
+                //pizzaSize = <sizeString>; this to be passed to server*/
             }
-            else
+            catch (Exception errors)
             {
-                MessageBox.Show("Please select pizza type first!");
+                MessageBox.Show("Please Follow the order");
             }
-            /*listBoxOrder.Items[1] = "Pizza size: Large";
-            //pizzaSize = <sizeString>; this to be passed to server*/
         }
     }
 }

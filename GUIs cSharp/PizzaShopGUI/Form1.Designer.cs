@@ -144,12 +144,13 @@
             this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listViewReadyOrders.GridLines = true;
             this.listViewReadyOrders.HideSelection = false;
-            this.listViewReadyOrders.Location = new System.Drawing.Point(261, 23);
+            this.listViewReadyOrders.Location = new System.Drawing.Point(238, 23);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
-            this.listViewReadyOrders.Size = new System.Drawing.Size(496, 126);
+            this.listViewReadyOrders.Size = new System.Drawing.Size(576, 126);
             this.listViewReadyOrders.TabIndex = 28;
+            this.listViewReadyOrders.TileSize = new System.Drawing.Size(200, 36);
             this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
-            this.listViewReadyOrders.View = System.Windows.Forms.View.Tile;
+            this.listViewReadyOrders.View = System.Windows.Forms.View.SmallIcon;
             // 
             // pbLipton
             // 
@@ -330,7 +331,7 @@
             this.btnServed.FlatAppearance.BorderSize = 5;
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServed.Location = new System.Drawing.Point(791, 58);
+            this.btnServed.Location = new System.Drawing.Point(832, 55);
             this.btnServed.Name = "btnServed";
             this.btnServed.Size = new System.Drawing.Size(128, 53);
             this.btnServed.TabIndex = 36;
