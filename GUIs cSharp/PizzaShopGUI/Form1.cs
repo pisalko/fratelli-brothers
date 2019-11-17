@@ -27,7 +27,7 @@ namespace SmallestFibonachiNumber
             }
             catch (Exception errors)
             {
-                MessageBox.Show(errors.ToString());
+                MessageBox.Show("Arduino is not connected or port is not selected correctly");
             }
         }
 
@@ -36,7 +36,7 @@ namespace SmallestFibonachiNumber
 
         bool pizzaTypeCh, pizzaSizeCh, ifDataReceived = false;
 
-        
+
         int ordersForTheDay, pizzaNumber = 0;
 
         private void DrinksCounter(Label lb, MouseEventArgs e)
@@ -60,68 +60,71 @@ namespace SmallestFibonachiNumber
         //POST request sending string to server
         private void POSTrequest(string uri, String order)
         {
-            WebRequest request = WebRequest.Create(uri);
-            // Set the Method property of the request to POST.
-            request.Method = "POST";
-            // Create POST data and convert it to a byte array.
-            string postData = "Now it works";
-            /*string postData = textBox1.Text;
-            if (textBox1.Text == "")
+            try
             {
-                postData = "The user did not input any text.";
-                textBox1.Text = null;
+                //First we create a Webrequest type variable with an absolute uri (htttp://ipaddress:port/)
+                WebRequest request = WebRequest.Create(uri);
+                // We specify that it will be a POST request, the WebRequest class enables us to do it that easily
+                request.Method = "POST";
+                // Order is a String which we convert to byte array and later upload to Stream.
+                byte[] buffer = Encoding.UTF8.GetBytes(order);
+                // We specify what is sending the request, again WebRequest class makes it easy for us
+                request.ContentType = "Mario's Interface";
+                // Here we tell the server how long our byte array is (string we are sending) (constructing the header)
+                request.ContentLength = buffer.Length;
+                // We create a Stream type variable and store the requestStream in it
+                Stream dataStream = request.GetRequestStream();
+                // Uploading the byte array to the requested stream
+                dataStream.Write(buffer, 0, buffer.Length);
+                // Stream is closed since we dont need it anymore
+                dataStream.Close();
+                // Here we wait for the server's response (if not received, we get an exception)         
+                WebResponse response = request.GetResponse();
+                // We print the status in console just for clarification
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // We get the data from the response stream
+                dataStream = response.GetResponseStream();
+                // We use the StreamReader class to read the incoming Stream at ease
+                StreamReader reader = new StreamReader(dataStream);
+                // We save the stream's content data in a String
+                string responseFromServer = reader.ReadToEnd();
+                // We display the data in the Console for debugging, this helped me a lot when I was building the server on Java with Sockets (I left that code for clarification, we don't use it)
+                Console.WriteLine(responseFromServer);
+                // Closing the streams
+                reader.Close();
+                dataStream.Close();
+                response.Close();
             }
-            else
+            catch (Exception errors)
             {
-                postData = textBox1.Text;
-                textBox1.Text = null;
-            }*/
-
-            byte[] buffer = Encoding.UTF8.GetBytes(order);
-            // Set the ContentType property of the WebRequest.
-            request.ContentType = "Mario's Interface";
-            // Set the ContentLength property of the WebRequest. 
-            request.ContentLength = buffer.Length;
-            // Get the request stream.
-            Stream dataStream = request.GetRequestStream();
-            // Write the data to the request stream.
-            dataStream.Write(buffer, 0, buffer.Length);
-            // Close the Stream object.
-            dataStream.Close();
-            // Get the response.           
-            WebResponse response = request.GetResponse();
-            // Display the status.
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            // Get the stream containing content returned by the server.
-            dataStream = response.GetResponseStream();
-            // Open the stream using a StreamReader for easy access.
-            StreamReader reader = new StreamReader(dataStream);
-            // Read the content.
-            string responseFromServer = reader.ReadToEnd();
-            // Display the content.
-            Console.WriteLine(responseFromServer);
-            // Clean up the streams.
-            reader.Close();
-            dataStream.Close();
-            response.Close();
+                MessageBox.Show("Client did not receive a response from server, please check connection with server, there is something wrong ! \n Possible errors: wrong IP, wrong Port, server not launched");
+            }
         }
 
         //Get request returning string from server
-        public string GETrequest(string uri)
+        public string GETrequest(string uri) //We dont use get requests in this client (yet)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
 
-            return reader.ReadToEnd();
+                return reader.ReadToEnd();
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show("Client did not receive a response from server, please check connection with server, there is something wrong ! \n Possible errors: wrong IP, wrong Port, server not launched");
+                return "";
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -137,7 +140,7 @@ namespace SmallestFibonachiNumber
         private void pbPepsi_MouseDown(object sender, MouseEventArgs e)
         {
             DrinksCounter(lbPepsi, e);
-            
+
         }
 
         private void pbFanta_MouseDown(object sender, MouseEventArgs e)
@@ -184,30 +187,34 @@ namespace SmallestFibonachiNumber
             else
             {
                 ordersForTheDay++;
-            String order = "";
-            for(int i = 0; i < dataSentToServer.Count; i++)
-            {
-                int lengthLineList = dataSentToServer[i].Length;
+                String order = "";
+                for (int i = 0; i < dataSentToServer.Count; i++)
+                {
+                    int lengthLineList = dataSentToServer[i].Length;
 
-                if(i == 0)
-                {
-                    order += dataSentToServer[i].PadRight(16);
+                    if (i == 0)
+                    {
+                        order += dataSentToServer[i].PadRight(16);
+                    }
+                    else if (i == 1)
+                    {
+                        order += dataSentToServer[i].PadRight(12);
+                    }
+                    else if (i > 1 && i < dataSentToServer.Count)
+                    {
+                        order += dataSentToServer[i];
+                    }
+
                 }
-                else if (i == 1)
-                {
-                    order += dataSentToServer[i].PadRight(12);
-                }
-                else if (i > 1 && i < dataSentToServer.Count)
-                {
-                    order += dataSentToServer[i];
-                }
-                
-            }
-            order = order.PadRight(137);
-            order += ordersForTheDay.ToString();
-            
-                POSTrequest("http://145.93.76.171:42069", order);
+                order = order.PadRight(137);
+                order += ordersForTheDay.ToString();
+
+                POSTrequest("http://172.20.7.34:42069", order);
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
+
+                pizzaTypeCh = false;
+                pizzaSizeCh = false;
+                serialPort1.Write(ordersForTheDay.ToString());
             }
             listBoxPizzas.Items.Clear();
             for (int i = 0; i < chlbExtra.Items.Count; i++)
@@ -216,7 +223,7 @@ namespace SmallestFibonachiNumber
             }
         }
 
-       
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,9 +243,6 @@ namespace SmallestFibonachiNumber
                 listBoxPizzas.Items[0] = "Pizza type: " + comboBoxPizza.Text;
                 dataSentToServer[0] = comboBoxPizza.Text;// + "    ";
             }
-
-            /*listBoxOrder.Items[0] = "Pizza type: " + comboBoxPizza.Text;
-            //pizzaType = < pizzaName >; this to be passed to server*/
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -266,17 +270,18 @@ namespace SmallestFibonachiNumber
                 }
                 /*listBoxOrder.Items[1] = "Pizza size: Small";
                 //pizzaSize = <sizeString>; this to be passed to server*/
-            } catch (Exception errors)
+            }
+            catch (Exception errors)
             {
                 MessageBox.Show("Please follow the order!");
             }
-            }
+        }
 
-        
-            
+
+
         private void ChlbExtra_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            
+
             if (pizzaSizeCh)
             {
                 chlbExtra.BeginInvoke(new Action(() =>   //lambda function, like a foreach
@@ -296,7 +301,7 @@ namespace SmallestFibonachiNumber
                         if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
                         {
                             addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
-                                                 
+
                             dataSentToServer.Add(addedToList);
 
                         }
@@ -307,14 +312,14 @@ namespace SmallestFibonachiNumber
                     {
                         String addedToList = "";
                         listBoxPizzas.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
-                        if((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                        if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
                         {
                             addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
                             dataSentToServer.Remove(addedToList);
 
                         }
                         else
-                        dataSentToServer.Remove((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
+                            dataSentToServer.Remove((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
 
                         if (chlbExtra.CheckedItems.Count == 0 && listBoxPizzas.Items.Contains("Extras:"))
                         {
@@ -353,7 +358,7 @@ namespace SmallestFibonachiNumber
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-           //MessageBox.Show("");
+            //MessageBox.Show("");
             textInPort = serialPort1.ReadLine();
             textInPort.Trim();
             textInPort = textInPort.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
@@ -375,10 +380,10 @@ namespace SmallestFibonachiNumber
             }
         }
 
-       // private void button1_Click_1(object sender, EventArgs e)
+        // private void button1_Click_1(object sender, EventArgs e)
         //{
-       //     listViewReadyOrders.Items.Add("1aaaaaaaaaaaaaaaaaaaaaa1");
-       // }
+        //     listViewReadyOrders.Items.Add("1aaaaaaaaaaaaaaaaaaaaaa1");
+        // }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -410,7 +415,8 @@ namespace SmallestFibonachiNumber
                 }
                 /*listBoxOrder.Items[1] = "Pizza size: Medium";
                 //pizzaSize = <sizeString>; this to be passed to server*/
-            } catch (Exception error)
+            }
+            catch (Exception error)
             {
                 MessageBox.Show("Please follow the order!");
             }

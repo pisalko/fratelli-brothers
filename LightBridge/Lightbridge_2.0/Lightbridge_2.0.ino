@@ -7,9 +7,10 @@ const int KEY2 = 9;
 const int LDR = A2; //A2 in arduino, A0 in ESP with jumper cable
 
 unsigned long debounceTimer = 0;
-int ldrEnv, ldrEnvNow, counterPizza, mode = 0;
+int ldrEnv, ldrEnvNow, counterPizza, mode, orderedPizzas = 0;
 bool lock = false;
 bool key1State, key1OldState, key1Click, key2State, key2OldState, key2Click = true;
+String textInSerial = "";
 
 void setup() {
   // put your setup code here, to run once:
@@ -68,13 +69,26 @@ void loop()
     //Serial.println("key1Press");
     mode = 1;
   }
-
-    if (key2Click && !key2State)  //Key2 Switchin mode to nothing and reseting PizzaCounter
+  //---
+  if (key2Click && !key2State)  //Key2 Switchin mode to nothing and reseting PizzaCounter
   {
     mode = 0;
     counterPizza = 0;
   }
-
+  //---
+  if (Serial.available() > 0)       //Checking if there is info in Serial
+  {
+    textInSerial = Serial.readString();
+    textInSerial.trim();
+    for (int i = 0; i < 9999; i++)
+    {
+      if (textInSerial == i)
+      {
+        orderedPizzas = i;
+      }
+    }
+  }
+  //---
   if (mode == 1)       // Mode LightBridge
   {
     ldrEnvNow = analogRead(LDR);
@@ -83,18 +97,28 @@ void loop()
       if (lock)
       {
         counterPizza++;
-        lock = false;
-        Serial.println(counterPizza);
+        if (counterPizza > orderedPizzas)
+        {
+          counterPizza--;
+          lock = false;
+          Serial.println(counterPizza);
+        }
+        else
+        {
+          lock = false;
+          Serial.println(counterPizza);
+        }
       }
     }
     else
     {
       lock = true;
     }
-  }
 
-  if(mode == 0) //Doesnt do anything yet in this mode
-  {
-    
+    if (mode == 0) //Doesnt do anything yet in this mode
+    {
+
+    }
+
   }
 }
