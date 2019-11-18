@@ -89,12 +89,12 @@ namespace Luigi_GUI
             
             if (once)
             {
-                orderFromServer = GETrequest("http://145.93.60.244:42069");
+                orderFromServer = GETrequest("http://145.120.39.3:42069");
                 oldText = orderFromServer;
                 once = false;
             }
 
-            orderFromServer = GETrequest("http://145.93.60.244:42069");
+            orderFromServer = GETrequest("http://145.120.39.3:42069");
             bool checkIfNewOrder = oldText != orderFromServer;
             
             if (checkIfNewOrder)

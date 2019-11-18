@@ -209,12 +209,19 @@ namespace SmallestFibonachiNumber
                 order = order.PadRight(137);
                 order += ordersForTheDay.ToString();
 
-                POSTrequest("http://172.20.7.34:42069", order);
+                POSTrequest("http://145.120.39.3:42069", order);
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
 
                 pizzaTypeCh = false;
                 pizzaSizeCh = false;
-                serialPort1.Write(ordersForTheDay.ToString());
+                try
+                {
+                    serialPort1.Write(ordersForTheDay.ToString());
+                }
+                catch (Exception errors)
+                {
+                    MessageBox.Show("Port is not open - Arduino disconnected or wrong port");
+                }
             }
             listBoxPizzas.Items.Clear();
             for (int i = 0; i < chlbExtra.Items.Count; i++)

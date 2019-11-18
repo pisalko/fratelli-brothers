@@ -89,14 +89,14 @@
             this.chlbExtra.FormattingEnabled = true;
             this.chlbExtra.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chlbExtra.Items.AddRange(new object[] {
-            "Extra Tomato sauce + $",
-            "Extra Mushrooms + $",
-            "Extra Onions + $",
-            "Extra Olives + $",
-            "Extra Cheese + $",
-            "Extra Rucola + $",
-            "Philadelphia crust + $",
-            "Italian-crafted base + $"});
+            "Extra Tomato sauce + 0.50€",
+            "Extra Mushrooms + 0.50€",
+            "Extra Onions + 0.50€",
+            "Extra Olives + 0.50€",
+            "Extra Cheese + 1.00€",
+            "Extra Rucola + 0.50€",
+            "Philadelphia crust + 1.20€",
+            "Italian-crafted base + 0.80€"});
             this.chlbExtra.Location = new System.Drawing.Point(45, 375);
             this.chlbExtra.Name = "chlbExtra";
             this.chlbExtra.Size = new System.Drawing.Size(261, 171);
@@ -131,7 +131,6 @@
             "Pepperoni",
             "Vegan",
             "Salami",
-            "Salame",
             "Rustica"});
             this.comboBoxPizza.Location = new System.Drawing.Point(45, 201);
             this.comboBoxPizza.Name = "comboBoxPizza";

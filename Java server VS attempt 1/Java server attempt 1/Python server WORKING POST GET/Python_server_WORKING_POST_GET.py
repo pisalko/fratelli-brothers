@@ -46,7 +46,7 @@ class S(BaseHTTPRequestHandler):
         message = post_data
         
 
-def run(server_class=HTTPServer, handler_class=S, addr="172.20.7.34", port=42069):
+def run(server_class=HTTPServer, handler_class=S, addr="145.120.39.3", port=42069):
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-l",
         "--listen",
-        default="172.20.7.34",
+        default="145.120.39.3",
         help="Specify the IP address on which the server listens",
     )
     parser.add_argument(
