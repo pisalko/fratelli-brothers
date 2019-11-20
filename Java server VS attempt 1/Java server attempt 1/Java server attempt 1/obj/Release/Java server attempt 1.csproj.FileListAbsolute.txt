@@ -1,0 +1,10 @@
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Release\Java server attempt 1.exe.config
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Release\Java server attempt 1.exe
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\bin\Release\Java server attempt 1.pdb
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java server attempt 1.csprojAssemblyReference.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java_server_attempt_1.Form1.resources
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java_server_attempt_1.Properties.Resources.resources
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java server attempt 1.csproj.GenerateResource.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java server attempt 1.csproj.CoreCompileInputs.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java server attempt 1.exe
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\Java server VS attempt 1\Java server attempt 1\Java server attempt 1\obj\Release\Java server attempt 1.pdb

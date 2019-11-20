@@ -1,0 +1,10 @@
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Release\Luigi GUI.exe.config
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Release\Luigi GUI.exe
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Release\Luigi GUI.pdb
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi GUI.csprojAssemblyReference.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi_GUI.LuigiGUI.resources
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi_GUI.Properties.Resources.resources
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi GUI.csproj.GenerateResource.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi GUI.csproj.CoreCompileInputs.cache
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi GUI.exe
+C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Release\Luigi GUI.pdb
