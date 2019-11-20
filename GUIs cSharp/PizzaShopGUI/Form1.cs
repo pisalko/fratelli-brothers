@@ -34,7 +34,7 @@ namespace SmallestFibonachiNumber
         String textInPort;
         List<String> dataSentToServer = new List<String>();
 
-        bool pizzaTypeCh, pizzaSizeCh, ifDataReceived = false;
+        bool pizzaTypeCh, pizzaSizeCh, ifDataReceived, checkAllUnchecked = false;
 
 
         int ordersForTheDay, pizzaNumber = 0;
@@ -64,33 +64,33 @@ namespace SmallestFibonachiNumber
             {
                 //First we create a Webrequest type variable with an absolute uri (htttp://ipaddress:port/)
                 WebRequest request = WebRequest.Create(uri);
-                // We specify that it will be a POST request, the WebRequest class enables us to do it that easily
+                //We specify that it will be a POST request, the WebRequest class enables us to do it that easily
                 request.Method = "POST";
-                // Order is a String which we convert to byte array and later upload to Stream.
+                //Order is a String which we convert to byte array and later upload to Stream.
                 byte[] buffer = Encoding.UTF8.GetBytes(order);
-                // We specify what is sending the request, again WebRequest class makes it easy for us
+                //We specify what is sending the request, again WebRequest class makes it easy for us
                 request.ContentType = "Mario's Interface";
-                // Here we tell the server how long our byte array is (string we are sending) (constructing the header)
+                //Here we tell the server how long our byte array is (string we are sending) (constructing the header)
                 request.ContentLength = buffer.Length;
-                // We create a Stream type variable and store the requestStream in it
+                //We create a Stream type variable and store the requestStream in it
                 Stream dataStream = request.GetRequestStream();
-                // Uploading the byte array to the requested stream
+                //Uploading the byte array to the requested stream
                 dataStream.Write(buffer, 0, buffer.Length);
-                // Stream is closed since we dont need it anymore
+                //Stream is closed since we dont need it anymore
                 dataStream.Close();
-                // Here we wait for the server's response (if not received, we get an exception)         
+                //Here we wait for the server's response (if not received, we get an exception)         
                 WebResponse response = request.GetResponse();
-                // We print the status in console just for clarification
+                //We print the status in console just for clarification
                 Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-                // We get the data from the response stream
+                //We get the data from the response stream
                 dataStream = response.GetResponseStream();
-                // We use the StreamReader class to read the incoming Stream at ease
+                //We use the StreamReader class to read the incoming Stream at ease
                 StreamReader reader = new StreamReader(dataStream);
-                // We save the stream's content data in a String
+                //We save the stream's content data in a String
                 string responseFromServer = reader.ReadToEnd();
-                // We display the data in the Console for debugging, this helped me a lot when I was building the server on Java with Sockets (I left that code for clarification, we don't use it)
+                //We display the data in the Console for debugging, this helped me a lot when I was building the server on Java with Sockets (I left that code for clarification, we don't use it)
                 Console.WriteLine(responseFromServer);
-                // Closing the streams
+                //Closing the streams
                 reader.Close();
                 dataStream.Close();
                 response.Close();
@@ -209,24 +209,17 @@ namespace SmallestFibonachiNumber
                 order = order.PadRight(137);
                 order += ordersForTheDay.ToString();
 
-                POSTrequest("http://145.120.39.3:42069", order);
+                POSTrequest("http://192.168.88.250:42069", order);
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
 
                 pizzaTypeCh = false;
                 pizzaSizeCh = false;
-                try
-                {
-                    serialPort1.Write(ordersForTheDay.ToString());
-                }
-                catch (Exception errors)
-                {
-                    MessageBox.Show("Port is not open - Arduino disconnected or wrong port");
-                }
             }
             listBoxPizzas.Items.Clear();
             for (int i = 0; i < chlbExtra.Items.Count; i++)
             {
                 chlbExtra.SetItemChecked(i, false);
+                checkAllUnchecked = true;
             }
         }
 
@@ -288,57 +281,64 @@ namespace SmallestFibonachiNumber
 
         private void ChlbExtra_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-
-            if (pizzaSizeCh)
+            if (!checkAllUnchecked)
             {
-                chlbExtra.BeginInvoke(new Action(() =>   //lambda function, like a foreach
+                if (pizzaSizeCh)
                 {
-
-                    if (chlbExtra.CheckedItems.Count == 1 && !(listBoxPizzas.Items.Contains("Extras:")))
+                    chlbExtra.BeginInvoke(new Action(() =>   //lambda function, like a foreach, inverts order of doing the check
                     {
-                        listBoxPizzas.Items.Add("Extras:");
-                        dataSentToServer.Add("Extras: ");
-                    }
 
-
-                    if (e.NewValue == CheckState.Checked)
-                    {
-                        String addedToList = "";
-                        listBoxPizzas.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
-                        if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                        if (chlbExtra.CheckedItems.Count == 1 && !(listBoxPizzas.Items.Contains("Extras:")))
                         {
-                            addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
-
-                            dataSentToServer.Add(addedToList);
-
+                            listBoxPizzas.Items.Add("Extras:");
+                            dataSentToServer.Add("Extras: ");
                         }
-                        else
-                            dataSentToServer.Add((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
-                    }
-                    if (e.NewValue == CheckState.Unchecked)
-                    {
-                        String addedToList = "";
-                        listBoxPizzas.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
-                        if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+
+
+                        if (e.NewValue == CheckState.Checked)
                         {
-                            addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
-                            dataSentToServer.Remove(addedToList);
+                            String addedToList = "";
+                            listBoxPizzas.Items.Add(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                            if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                            {
+                                addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
 
+                                dataSentToServer.Add(addedToList);
+
+                            }
+                            else
+                                dataSentToServer.Add((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
                         }
-                        else
-                            dataSentToServer.Remove((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
-
-                        if (chlbExtra.CheckedItems.Count == 0 && listBoxPizzas.Items.Contains("Extras:"))
+                        if (e.NewValue == CheckState.Unchecked)
                         {
-                            listBoxPizzas.Items.Remove("Extras:");
-                            dataSentToServer.Remove("Extras: ");
+                            String addedToList = "";
+                            listBoxPizzas.Items.Remove(chlbExtra.Items[chlbExtra.SelectedIndex]);
+                            if ((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().StartsWith("Extra"))
+                            {
+                                addedToList = (chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(6, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 10) + " ";
+                                dataSentToServer.Remove(addedToList);
+
+                            }
+                            else
+                                dataSentToServer.Remove((chlbExtra.Items[chlbExtra.SelectedIndex]).ToString().Substring(0, chlbExtra.Items[chlbExtra.SelectedIndex].ToString().Length - 4) + " ");
+
+                            if (chlbExtra.CheckedItems.Count == 0 && listBoxPizzas.Items.Contains("Extras:"))
+                            {
+                                listBoxPizzas.Items.Remove("Extras:");
+                                dataSentToServer.Remove("Extras: ");
+                            }
                         }
-                    }
-                }));
+                    }));
+                }
+                else
+                {
+                    MessageBox.Show("Please choose pizza type and size first!");
+                    e.NewValue = CheckState.Unchecked;
+                }
             }
             else
             {
-                MessageBox.Show("Please choose pizza type and size first!");
+                checkAllUnchecked = false;
                 e.NewValue = CheckState.Unchecked;
             }
         }
@@ -353,8 +353,18 @@ namespace SmallestFibonachiNumber
             //maybe check for changes with get request later
             if (ifDataReceived)
             {
-                listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
-                ifDataReceived = false;
+                pizzaNumber++;
+                if (pizzaNumber > ordersForTheDay)
+                {
+                    pizzaNumber--;
+                    ifDataReceived = false;
+                }
+                else
+                {
+                    listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
+                    ifDataReceived = false;
+                }
+                
             }
         }
 
@@ -370,8 +380,7 @@ namespace SmallestFibonachiNumber
             textInPort.Trim();
             textInPort = textInPort.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
 
-            pizzaNumber = Convert.ToInt32(textInPort);
-
+            if (textInPort == "1")
             ifDataReceived = true;
         }
 
@@ -458,7 +467,9 @@ namespace SmallestFibonachiNumber
             catch (Exception errors)
             {
                 MessageBox.Show("Please Follow the order");
+                 
             }
+           
         }
     }
 }

@@ -76,7 +76,7 @@ void loop()
     counterPizza = 0;
   }
   //---
-  if (Serial.available() > 0)       //Checking if there is info in Serial
+  /*if (Serial.available() > 0)       //Checking if there is info in Serial
   {
     textInSerial = Serial.readString();
     textInSerial.trim();
@@ -85,9 +85,10 @@ void loop()
       if (textInSerial == i)
       {
         orderedPizzas = i;
+        digitalWrite(LED1R, HIGH);
       }
     }
-  }
+  }*/
   //---
   if (mode == 1)       // Mode LightBridge
   {
@@ -96,23 +97,15 @@ void loop()
     {
       if (lock)
       {
-        counterPizza++;
-        if (counterPizza > orderedPizzas)
-        {
-          counterPizza--;
-          lock = false;
-          Serial.println(counterPizza);
-        }
-        else
-        {
-          lock = false;
-          Serial.println(counterPizza);
-        }
+        counterPizza = 1;
+        Serial.println(counterPizza);
+        lock = false;
       }
     }
     else
     {
       lock = true;
+      counterPizza = 0;
     }
 
     if (mode == 0) //Doesnt do anything yet in this mode

@@ -56,6 +56,7 @@
             this.constantChecks = new System.Windows.Forms.Timer(this.components);
             this.lbPizzasOrderedToday = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.listBoxDrinks = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -89,14 +90,14 @@
             this.chlbExtra.FormattingEnabled = true;
             this.chlbExtra.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chlbExtra.Items.AddRange(new object[] {
-            "Extra Tomato sauce + 0.50€",
-            "Extra Mushrooms + 0.50€",
-            "Extra Onions + 0.50€",
-            "Extra Olives + 0.50€",
-            "Extra Cheese + 1.00€",
-            "Extra Rucola + 0.50€",
-            "Philadelphia crust + 1.20€",
-            "Italian-crafted base + 0.80€"});
+            "Extra Tomato sauce + €",
+            "Extra Mushrooms + €",
+            "Extra Onions + €",
+            "Extra Olives + €",
+            "Extra Cheese + €",
+            "Extra Rucola + €",
+            "Philadelphia crust + €",
+            "Italian-crafted base + €"});
             this.chlbExtra.Location = new System.Drawing.Point(45, 375);
             this.chlbExtra.Name = "chlbExtra";
             this.chlbExtra.Size = new System.Drawing.Size(261, 171);
@@ -358,12 +359,22 @@
             this.serialPort1.PortName = "COM4";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // listBoxDrinks
+            // 
+            this.listBoxDrinks.FormattingEnabled = true;
+            this.listBoxDrinks.ItemHeight = 16;
+            this.listBoxDrinks.Location = new System.Drawing.Point(375, 391);
+            this.listBoxDrinks.Name = "listBoxDrinks";
+            this.listBoxDrinks.Size = new System.Drawing.Size(291, 148);
+            this.listBoxDrinks.TabIndex = 38;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(999, 573);
+            this.Controls.Add(this.listBoxDrinks);
             this.Controls.Add(this.lbPizzasOrderedToday);
             this.Controls.Add(this.btnServed);
             this.Controls.Add(this.label8);
@@ -435,6 +446,7 @@
         private System.Windows.Forms.Timer constantChecks;
         private System.Windows.Forms.Label lbPizzasOrderedToday;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ListBox listBoxDrinks;
     }
 }
 
