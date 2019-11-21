@@ -209,7 +209,7 @@ namespace SmallestFibonachiNumber
                 order = order.PadRight(137);
                 order += ordersForTheDay.ToString();
 
-                POSTrequest("http://192.168.88.250:42069", order);
+                POSTrequest("http://145.93.61.180:42069", order);
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
 
                 pizzaTypeCh = false;
