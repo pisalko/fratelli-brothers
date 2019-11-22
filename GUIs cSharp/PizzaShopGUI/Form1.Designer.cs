@@ -35,16 +35,6 @@
             this.btnToServer = new System.Windows.Forms.Button();
             this.comboBoxPizza = new System.Windows.Forms.ComboBox();
             this.listViewReadyOrders = new System.Windows.Forms.ListView();
-            this.pbLipton = new System.Windows.Forms.PictureBox();
-            this.pbSchweppes = new System.Windows.Forms.PictureBox();
-            this.pbJuice = new System.Windows.Forms.PictureBox();
-            this.pbPepsi = new System.Windows.Forms.PictureBox();
-            this.pbFanta = new System.Windows.Forms.PictureBox();
-            this.pbCola = new System.Windows.Forms.PictureBox();
-            this.pbLargePizza = new System.Windows.Forms.PictureBox();
-            this.pbMediumPizza = new System.Windows.Forms.PictureBox();
-            this.pbSmallPizza = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbCola = new System.Windows.Forms.Label();
             this.lbPepsi = new System.Windows.Forms.Label();
             this.lbFanta = new System.Windows.Forms.Label();
@@ -56,6 +46,16 @@
             this.constantChecks = new System.Windows.Forms.Timer(this.components);
             this.lbPizzasOrderedToday = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.pbLipton = new System.Windows.Forms.PictureBox();
+            this.pbSchweppes = new System.Windows.Forms.PictureBox();
+            this.pbJuice = new System.Windows.Forms.PictureBox();
+            this.pbPepsi = new System.Windows.Forms.PictureBox();
+            this.pbFanta = new System.Windows.Forms.PictureBox();
+            this.pbCola = new System.Windows.Forms.PictureBox();
+            this.pbLargePizza = new System.Windows.Forms.PictureBox();
+            this.pbMediumPizza = new System.Windows.Forms.PictureBox();
+            this.pbSmallPizza = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -73,7 +73,7 @@
             this.listBoxPizzas.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listBoxPizzas.FormattingEnabled = true;
             this.listBoxPizzas.Location = new System.Drawing.Point(529, 147);
-            this.listBoxPizzas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxPizzas.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxPizzas.Name = "listBoxPizzas";
             this.listBoxPizzas.Size = new System.Drawing.Size(192, 238);
             this.listBoxPizzas.TabIndex = 3;
@@ -98,7 +98,7 @@
             "Philadelphia crust + €",
             "Italian-crafted base + €"});
             this.chlbExtra.Location = new System.Drawing.Point(34, 305);
-            this.chlbExtra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chlbExtra.Margin = new System.Windows.Forms.Padding(2);
             this.chlbExtra.Name = "chlbExtra";
             this.chlbExtra.Size = new System.Drawing.Size(196, 128);
             this.chlbExtra.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.btnToServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToServer.Location = new System.Drawing.Point(529, 400);
-            this.btnToServer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnToServer.Margin = new System.Windows.Forms.Padding(2);
             this.btnToServer.Name = "btnToServer";
             this.btnToServer.Size = new System.Drawing.Size(191, 51);
             this.btnToServer.TabIndex = 8;
@@ -135,7 +135,7 @@
             "Salami",
             "Rustica"});
             this.comboBoxPizza.Location = new System.Drawing.Point(34, 163);
-            this.comboBoxPizza.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPizza.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPizza.Name = "comboBoxPizza";
             this.comboBoxPizza.Size = new System.Drawing.Size(197, 25);
             this.comboBoxPizza.TabIndex = 9;
@@ -147,133 +147,13 @@
             this.listViewReadyOrders.GridLines = true;
             this.listViewReadyOrders.HideSelection = false;
             this.listViewReadyOrders.Location = new System.Drawing.Point(178, 19);
-            this.listViewReadyOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewReadyOrders.Margin = new System.Windows.Forms.Padding(2);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
             this.listViewReadyOrders.Size = new System.Drawing.Size(433, 103);
             this.listViewReadyOrders.TabIndex = 28;
             this.listViewReadyOrders.TileSize = new System.Drawing.Size(200, 36);
             this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
             this.listViewReadyOrders.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // pbLipton
-            // 
-            this.pbLipton.Image = global::SmallestFibonachiNumber.Properties.Resources._69665995_482211882624268_5173394039105388544_n;
-            this.pbLipton.Location = new System.Drawing.Point(355, 283);
-            this.pbLipton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbLipton.Name = "pbLipton";
-            this.pbLipton.Size = new System.Drawing.Size(65, 65);
-            this.pbLipton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLipton.TabIndex = 26;
-            this.pbLipton.TabStop = false;
-            this.pbLipton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbLipton_MouseDown);
-            // 
-            // pbSchweppes
-            // 
-            this.pbSchweppes.Image = global::SmallestFibonachiNumber.Properties.Resources.schweps;
-            this.pbSchweppes.Location = new System.Drawing.Point(431, 283);
-            this.pbSchweppes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbSchweppes.Name = "pbSchweppes";
-            this.pbSchweppes.Size = new System.Drawing.Size(65, 65);
-            this.pbSchweppes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSchweppes.TabIndex = 25;
-            this.pbSchweppes.TabStop = false;
-            this.pbSchweppes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSchweppes_MouseDown);
-            // 
-            // pbJuice
-            // 
-            this.pbJuice.Image = global::SmallestFibonachiNumber.Properties.Resources._57154590_828536920833012_710430390107504640_n;
-            this.pbJuice.Location = new System.Drawing.Point(275, 283);
-            this.pbJuice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbJuice.Name = "pbJuice";
-            this.pbJuice.Size = new System.Drawing.Size(65, 65);
-            this.pbJuice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbJuice.TabIndex = 24;
-            this.pbJuice.TabStop = false;
-            this.pbJuice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbJuice_MouseDown);
-            // 
-            // pbPepsi
-            // 
-            this.pbPepsi.Image = global::SmallestFibonachiNumber.Properties.Resources._70866405_242230256702466_3159342780040347648_n;
-            this.pbPepsi.Location = new System.Drawing.Point(355, 201);
-            this.pbPepsi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbPepsi.Name = "pbPepsi";
-            this.pbPepsi.Size = new System.Drawing.Size(65, 65);
-            this.pbPepsi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPepsi.TabIndex = 22;
-            this.pbPepsi.TabStop = false;
-            this.pbPepsi.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPepsi_MouseDown);
-            // 
-            // pbFanta
-            // 
-            this.pbFanta.Image = global::SmallestFibonachiNumber.Properties.Resources.fanta;
-            this.pbFanta.Location = new System.Drawing.Point(431, 201);
-            this.pbFanta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbFanta.Name = "pbFanta";
-            this.pbFanta.Size = new System.Drawing.Size(65, 65);
-            this.pbFanta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFanta.TabIndex = 21;
-            this.pbFanta.TabStop = false;
-            this.pbFanta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbFanta_MouseDown);
-            // 
-            // pbCola
-            // 
-            this.pbCola.Image = global::SmallestFibonachiNumber.Properties.Resources._60317512_2715900981758696_5188495698168905728_n1;
-            this.pbCola.Location = new System.Drawing.Point(275, 201);
-            this.pbCola.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbCola.Name = "pbCola";
-            this.pbCola.Size = new System.Drawing.Size(65, 65);
-            this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCola.TabIndex = 17;
-            this.pbCola.TabStop = false;
-            this.pbCola.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCola_MouseDown);
-            // 
-            // pbLargePizza
-            // 
-            this.pbLargePizza.Image = ((System.Drawing.Image)(resources.GetObject("pbLargePizza.Image")));
-            this.pbLargePizza.Location = new System.Drawing.Point(143, 207);
-            this.pbLargePizza.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbLargePizza.Name = "pbLargePizza";
-            this.pbLargePizza.Size = new System.Drawing.Size(86, 87);
-            this.pbLargePizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLargePizza.TabIndex = 16;
-            this.pbLargePizza.TabStop = false;
-            this.pbLargePizza.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pbMediumPizza
-            // 
-            this.pbMediumPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbMediumPizza.Image")));
-            this.pbMediumPizza.Location = new System.Drawing.Point(76, 219);
-            this.pbMediumPizza.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbMediumPizza.Name = "pbMediumPizza";
-            this.pbMediumPizza.Size = new System.Drawing.Size(63, 65);
-            this.pbMediumPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMediumPizza.TabIndex = 15;
-            this.pbMediumPizza.TabStop = false;
-            this.pbMediumPizza.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pbSmallPizza
-            // 
-            this.pbSmallPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbSmallPizza.Image")));
-            this.pbSmallPizza.Location = new System.Drawing.Point(34, 235);
-            this.pbSmallPizza.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbSmallPizza.Name = "pbSmallPizza";
-            this.pbSmallPizza.Size = new System.Drawing.Size(38, 40);
-            this.pbSmallPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSmallPizza.TabIndex = 14;
-            this.pbSmallPizza.TabStop = false;
-            this.pbSmallPizza.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 19);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 124);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // lbCola
             // 
@@ -352,7 +232,7 @@
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServed.Location = new System.Drawing.Point(624, 45);
-            this.btnServed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnServed.Margin = new System.Windows.Forms.Padding(2);
             this.btnServed.Name = "btnServed";
             this.btnServed.Size = new System.Drawing.Size(96, 43);
             this.btnServed.TabIndex = 36;
@@ -378,8 +258,128 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM4";
+            this.serialPort1.PortName = "COM3";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // pbLipton
+            // 
+            this.pbLipton.Image = global::SmallestFibonachiNumber.Properties.Resources._69665995_482211882624268_5173394039105388544_n;
+            this.pbLipton.Location = new System.Drawing.Point(355, 283);
+            this.pbLipton.Margin = new System.Windows.Forms.Padding(2);
+            this.pbLipton.Name = "pbLipton";
+            this.pbLipton.Size = new System.Drawing.Size(65, 65);
+            this.pbLipton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLipton.TabIndex = 26;
+            this.pbLipton.TabStop = false;
+            this.pbLipton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbLipton_MouseDown);
+            // 
+            // pbSchweppes
+            // 
+            this.pbSchweppes.Image = global::SmallestFibonachiNumber.Properties.Resources.schweps;
+            this.pbSchweppes.Location = new System.Drawing.Point(431, 283);
+            this.pbSchweppes.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSchweppes.Name = "pbSchweppes";
+            this.pbSchweppes.Size = new System.Drawing.Size(65, 65);
+            this.pbSchweppes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSchweppes.TabIndex = 25;
+            this.pbSchweppes.TabStop = false;
+            this.pbSchweppes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbSchweppes_MouseDown);
+            // 
+            // pbJuice
+            // 
+            this.pbJuice.Image = global::SmallestFibonachiNumber.Properties.Resources._57154590_828536920833012_710430390107504640_n;
+            this.pbJuice.Location = new System.Drawing.Point(275, 283);
+            this.pbJuice.Margin = new System.Windows.Forms.Padding(2);
+            this.pbJuice.Name = "pbJuice";
+            this.pbJuice.Size = new System.Drawing.Size(65, 65);
+            this.pbJuice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbJuice.TabIndex = 24;
+            this.pbJuice.TabStop = false;
+            this.pbJuice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbJuice_MouseDown);
+            // 
+            // pbPepsi
+            // 
+            this.pbPepsi.Image = global::SmallestFibonachiNumber.Properties.Resources._70866405_242230256702466_3159342780040347648_n;
+            this.pbPepsi.Location = new System.Drawing.Point(355, 201);
+            this.pbPepsi.Margin = new System.Windows.Forms.Padding(2);
+            this.pbPepsi.Name = "pbPepsi";
+            this.pbPepsi.Size = new System.Drawing.Size(65, 65);
+            this.pbPepsi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPepsi.TabIndex = 22;
+            this.pbPepsi.TabStop = false;
+            this.pbPepsi.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPepsi_MouseDown);
+            // 
+            // pbFanta
+            // 
+            this.pbFanta.Image = global::SmallestFibonachiNumber.Properties.Resources.fanta;
+            this.pbFanta.Location = new System.Drawing.Point(431, 201);
+            this.pbFanta.Margin = new System.Windows.Forms.Padding(2);
+            this.pbFanta.Name = "pbFanta";
+            this.pbFanta.Size = new System.Drawing.Size(65, 65);
+            this.pbFanta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFanta.TabIndex = 21;
+            this.pbFanta.TabStop = false;
+            this.pbFanta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbFanta_MouseDown);
+            // 
+            // pbCola
+            // 
+            this.pbCola.Image = global::SmallestFibonachiNumber.Properties.Resources._60317512_2715900981758696_5188495698168905728_n1;
+            this.pbCola.Location = new System.Drawing.Point(275, 201);
+            this.pbCola.Margin = new System.Windows.Forms.Padding(2);
+            this.pbCola.Name = "pbCola";
+            this.pbCola.Size = new System.Drawing.Size(65, 65);
+            this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCola.TabIndex = 17;
+            this.pbCola.TabStop = false;
+            this.pbCola.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCola_MouseDown);
+            // 
+            // pbLargePizza
+            // 
+            this.pbLargePizza.Image = ((System.Drawing.Image)(resources.GetObject("pbLargePizza.Image")));
+            this.pbLargePizza.Location = new System.Drawing.Point(143, 207);
+            this.pbLargePizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbLargePizza.Name = "pbLargePizza";
+            this.pbLargePizza.Size = new System.Drawing.Size(86, 87);
+            this.pbLargePizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLargePizza.TabIndex = 16;
+            this.pbLargePizza.TabStop = false;
+            this.pbLargePizza.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pbMediumPizza
+            // 
+            this.pbMediumPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbMediumPizza.Image")));
+            this.pbMediumPizza.Location = new System.Drawing.Point(76, 219);
+            this.pbMediumPizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMediumPizza.Name = "pbMediumPizza";
+            this.pbMediumPizza.Size = new System.Drawing.Size(63, 65);
+            this.pbMediumPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMediumPizza.TabIndex = 15;
+            this.pbMediumPizza.TabStop = false;
+            this.pbMediumPizza.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pbSmallPizza
+            // 
+            this.pbSmallPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbSmallPizza.Image")));
+            this.pbSmallPizza.Location = new System.Drawing.Point(34, 235);
+            this.pbSmallPizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSmallPizza.Name = "pbSmallPizza";
+            this.pbSmallPizza.Size = new System.Drawing.Size(38, 40);
+            this.pbSmallPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSmallPizza.TabIndex = 14;
+            this.pbSmallPizza.TabStop = false;
+            this.pbSmallPizza.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 19);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Form1
             // 
@@ -412,7 +412,7 @@
             this.Controls.Add(this.chlbExtra);
             this.Controls.Add(this.listBoxPizzas);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Fratelli Pizza Interface Cashier";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
