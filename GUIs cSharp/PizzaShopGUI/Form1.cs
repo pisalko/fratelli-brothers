@@ -101,6 +101,41 @@ namespace SmallestFibonachiNumber
             }
         }
 
+        public String DrinksOrdered()
+        {
+            String finalDrinks = "";
+            String[] DrinksWithInts = new String[6];
+            int[] vale = new int[6];
+            vale[0] = Convert.ToInt32(lbCola.Text);
+            DrinksWithInts[0] = "Coca-Colas to be served : " + vale[0];
+            vale[1] = Convert.ToInt32(lbPepsi.Text);
+            DrinksWithInts[1] = "Pepsis to be served : " + vale[1];
+            vale[2] = Convert.ToInt32(lbFanta.Text);
+            DrinksWithInts[2] = "Fantas to be served : " + vale[2];
+            vale[3] = Convert.ToInt32(lbJuice.Text);
+            DrinksWithInts[3] = "Juices to be served : " + vale[3];
+            vale[4] = Convert.ToInt32(lbLipton.Text);
+            DrinksWithInts[4] = "Liptons to be served : " + vale[4];
+            vale[5] = Convert.ToInt32(lbSchweppes.Text);
+            DrinksWithInts[5] = "Schweppes' to be served : " + vale[5];
+
+            for (int i = 0; i < vale.Length; i ++)
+            {
+                
+                if (vale[i] != 0)
+                {
+                    finalDrinks += DrinksWithInts[i] + "\n";
+                }
+            }
+            lbCola.Text = "0";
+            lbFanta.Text = "0";
+            lbPepsi.Text = "0";
+            lbJuice.Text = "0";
+            lbSchweppes.Text = "0";
+            lbLipton.Text = "0";
+            return finalDrinks;   
+        }
+
         //Get request returning string from server
         public string GETrequest(string uri) //We dont use get requests in this client (yet)
         {
@@ -190,7 +225,8 @@ namespace SmallestFibonachiNumber
                 String order = "";
                 for (int i = 0; i < dataSentToServer.Count; i++)
                 {
-                    int lengthLineList = dataSentToServer[i].Length;
+                    
+                    //int lengthLineList = dataSentToServer[i].Length;
 
                     if (i == 0)
                     {
@@ -208,8 +244,11 @@ namespace SmallestFibonachiNumber
                 }
                 order = order.PadRight(137);
                 order += ordersForTheDay.ToString();
+                
+                
 
-                POSTrequest("http://145.93.61.180:42069", order);
+                POSTrequest("http://10.28.109.112:42069", order);
+                
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
 
                 pizzaTypeCh = false;
@@ -221,6 +260,10 @@ namespace SmallestFibonachiNumber
                 chlbExtra.SetItemChecked(i, false);
                 checkAllUnchecked = true;
             }
+            dataSentToServer.Clear();
+            String drinksToBeDisplayed = DrinksOrdered();
+            if (drinksToBeDisplayed != "")
+            MessageBox.Show(drinksToBeDisplayed);
         }
 
 

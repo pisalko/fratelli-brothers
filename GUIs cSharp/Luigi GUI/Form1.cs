@@ -23,14 +23,22 @@ namespace Luigi_GUI
         //Get request returning string from server
         public string GETrequest(string uri)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+                request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
 
-            return reader.ReadToEnd();
+                return reader.ReadToEnd();
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show("There is a problem with the server, please check connection !");
+                return null;
+            }
         }
 
         //POST request sending string to server
@@ -77,7 +85,7 @@ namespace Luigi_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Remove(listBox1.SelectedItem);
+            listBox1.Items.Remove(listBox1.Items[0]);
         }
 
         bool once = true;
@@ -89,12 +97,12 @@ namespace Luigi_GUI
             
             if (once)
             {
-                orderFromServer = GETrequest("http://145.93.61.180:42069");
+                orderFromServer = GETrequest("http://10.28.109.112:42069");
                 oldText = orderFromServer;
                 once = false;
             }
 
-            orderFromServer = GETrequest("http://145.93.61.180:42069");
+            orderFromServer = GETrequest("http://10.28.109.112:42069");
             bool checkIfNewOrder = oldText != orderFromServer;
             
             if (checkIfNewOrder)
