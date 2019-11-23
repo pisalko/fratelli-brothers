@@ -215,9 +215,9 @@ namespace SmallestFibonachiNumber
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            if (!pizzaTypeCh || !pizzaSizeCh)
+            if (!pizzaTypeCh && !pizzaSizeCh)
             {
-                MessageBox.Show("No Pizza selected.");
+                MessageBox.Show("Why are you trying to send an empty order ?");
             }
             else
             {
@@ -225,6 +225,9 @@ namespace SmallestFibonachiNumber
                 String order = "";
                 for (int i = 0; i < dataSentToServer.Count; i++)
                 {
+                    
+                    //int lengthLineList = dataSentToServer[i].Length;
+
                     if (i == 0)
                     {
                         order += dataSentToServer[i].PadRight(16);
@@ -237,16 +240,17 @@ namespace SmallestFibonachiNumber
                     {
                         order += dataSentToServer[i];
                     }
+
                 }
                 order = order.PadRight(137);
                 order += ordersForTheDay.ToString();
                 
                 
-            
-                POSTrequest("http://10.28.109.112:42069/", order);
+
+                POSTrequest("http://10.28.109.112:42069", order);
                 
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
-              
+
                 pizzaTypeCh = false;
                 pizzaSizeCh = false;
             }
@@ -400,14 +404,8 @@ namespace SmallestFibonachiNumber
                 }
                 else
                 {
-                    System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
-                    notificationSound.Stream = Properties.Resources.bruh;
-                    notificationSound.Play();
-
                     listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
-                    POSTrequest("http://10.28.109.112:42069", "ZPizza number " + pizzaNumber + " is ready for pick up!");
                     ifDataReceived = false;
-                    //to add a sound to inform cashier an order is ready !
                 }
                 
             }
@@ -427,11 +425,6 @@ namespace SmallestFibonachiNumber
 
             if (textInPort == "1")
             ifDataReceived = true;
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnServed_Click(object sender, EventArgs e)

@@ -18,8 +18,6 @@ namespace Luigi_GUI
         {
             InitializeComponent();
             listBox1.Items.Clear();
-            label2.Text = "Ready\nOrders: ";
-            listBox1.Focus();
         }
 
         //Get request returning string from server
@@ -87,13 +85,11 @@ namespace Luigi_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            //listBox1.Items.Remove(listBox1.Items[0]);
+            listBox1.Items.Remove(listBox1.Items[0]);
         }
 
         bool once = true;
         String oldText = "";
-        String oldTextZ = "";
         String orderFromServer = "";
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -102,71 +98,19 @@ namespace Luigi_GUI
             if (once)
             {
                 orderFromServer = GETrequest("http://10.28.109.112:42069");
-                
                 oldText = orderFromServer;
-                if (orderFromServer.StartsWith("Z"))
-                {
-                    oldTextZ = orderFromServer;
-                }
                 once = false;
             }
-            
+
             orderFromServer = GETrequest("http://10.28.109.112:42069");
-            if (orderFromServer.StartsWith("Z"))
-            {
-                bool checkIfNewOrderZ = oldTextZ != orderFromServer;
-
-                if (checkIfNewOrderZ)
-                {
-                    oldTextZ = orderFromServer;
-                    String textAddedToLV = oldTextZ.Substring(1);
-                    listViewReadyOrders.Items.Add(textAddedToLV);
-
-                    System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
-                    notificationSound.Stream = Properties.Resources.bruh;
-                    notificationSound.Play();
-                }
-            }
-            else
-            {
-                bool checkIfNewOrder = oldText != orderFromServer;
-
-                if (checkIfNewOrder)
-                {
-                    oldText = orderFromServer;
-                    listBox1.Items.Add(oldText);
-                }
-            }
-
-        }
-
-        private void listBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                listBox1.Items.Remove(listBox1.Items[0]);
-            }
-            catch (Exception errors)
-            {
-                MessageBox.Show("There is no order.");
-            }
-        }
-
-        private void listViewReadyOrders_KeyDown(object sender, KeyEventArgs e)
-        {
+            bool checkIfNewOrder = oldText != orderFromServer;
             
-        }
+            if (checkIfNewOrder)
+            {
+                oldText = orderFromServer;
+                listBox1.Items.Add(oldText);
+            }
 
-        private void listViewReadyOrders_Click(object sender, EventArgs e)
-        {
-            listViewReadyOrders.Clear();
-            listBox1.Focus();
-        }
-
-        private void listViewReadyOrders_MouseEnter(object sender, EventArgs e)
-        {
-
-            listViewReadyOrders_Click(sender, e);
         }
     }
 }

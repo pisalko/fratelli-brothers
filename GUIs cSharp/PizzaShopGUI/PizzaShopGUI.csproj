@@ -107,8 +107,5 @@
   <ItemGroup>
     <None Include="Resources\fanta.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bruh.wav" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
