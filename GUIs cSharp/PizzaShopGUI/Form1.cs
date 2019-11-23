@@ -11,6 +11,8 @@ using System.Drawing.Drawing2D;
 using System.Net;
 using System.IO;
 using System.Net.Sockets;
+using System.Threading;
+using System.Speech.Synthesis;
 
 namespace SmallestFibonachiNumber
 {
@@ -401,6 +403,8 @@ namespace SmallestFibonachiNumber
 
         }
 
+
+        String orderToBeSaid = "";
         private void constantChecks_Tick(object sender, EventArgs e)
         {
             //maybe check for changes with get request later
@@ -414,17 +418,31 @@ namespace SmallestFibonachiNumber
                 }
                 else
                 {
-                    System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
-                    notificationSound.Stream = Properties.Resources.bruh;
-                    notificationSound.Play();
+                    //System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
+                    //notificationSound.Stream = Properties.Resources.bruh;
+                    //notificationSound.Play();
 
                     listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
+                    orderToBeSaid = "Pizza number " + pizzaNumber + " is ready for pick up!";
+
+                    Thread secondThread = new Thread(TextToSpeech);
+                    secondThread.Start();
+
                     POSTrequest("http://" + GetLocalIPAddress() + ":42069", "ZPizza number " + pizzaNumber + " is ready for pick up!");
                     ifDataReceived = false;
                     //to add a sound to inform cashier an order is ready !
                 }
                 
             }
+        }
+
+        public void TextToSpeech()
+        {
+            string toSpeak = orderToBeSaid;
+            SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
+            speechSynthesizer.Speak(toSpeak);
+            speechSynthesizer.Dispose();
+          
         }
 
         private void listBoxDrinks_SelectedIndexChanged(object sender, EventArgs e)

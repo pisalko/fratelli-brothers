@@ -6,7 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -106,7 +108,8 @@ namespace Luigi_GUI
         String oldText = "";
         String oldTextZ = "";
         String orderFromServer = "";
-        
+        String orderToBeSaid = "";
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             
@@ -132,11 +135,15 @@ namespace Luigi_GUI
                 {
                     oldTextZ = orderFromServer;
                     String textAddedToLV = oldTextZ.Substring(1);
+                    orderToBeSaid = textAddedToLV;
                     listViewReadyOrders.Items.Add(textAddedToLV);
 
-                    System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
-                    notificationSound.Stream = Properties.Resources.bruh;
-                    notificationSound.Play();
+                    Thread secondThread = new Thread(TextToSpeech);
+                    secondThread.Start();
+
+                    //System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
+                    //notificationSound.Stream = Properties.Resources.bruh;
+                    //notificationSound.Play();
                 }
             }
             else if (checkIfNewOrder)
@@ -144,6 +151,15 @@ namespace Luigi_GUI
                 oldText = orderFromServer;
                 listBox1.Items.Add(oldText);
             }
+        }
+
+        public void TextToSpeech()
+        {
+            string toSpeak = orderToBeSaid;
+            SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
+            speechSynthesizer.Speak(toSpeak);
+            speechSynthesizer.Dispose();
+
         }
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
