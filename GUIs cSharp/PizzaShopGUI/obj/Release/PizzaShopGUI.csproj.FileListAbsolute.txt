@@ -7,13 +7,3 @@ C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\Smal
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csproj.GenerateResource.cache
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.exe
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.pdb
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.exe.config
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.exe
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\bin\Release\SmallestFibonachiNumber.pdb
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csprojAssemblyReference.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.Form1.resources
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.Properties.Resources.resources
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csproj.GenerateResource.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\PizzaShopGUI.csproj.CoreCompileInputs.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.exe
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\PizzaShopGUI\obj\Release\SmallestFibonachiNumber.pdb

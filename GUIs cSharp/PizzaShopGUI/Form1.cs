@@ -243,7 +243,7 @@ namespace SmallestFibonachiNumber
                 
                 
             
-                POSTrequest("http://192.168.1.70:42069/", order);
+                POSTrequest("http://10.28.109.112:42069/", order);
                 
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
               
@@ -405,7 +405,7 @@ namespace SmallestFibonachiNumber
                     notificationSound.Play();
 
                     listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
-                    POSTrequest("http://192.168.1.70:42069", "ZPizza number " + pizzaNumber + " is ready for pick up!");
+                    POSTrequest("http://10.28.109.112:42069", "ZPizza number " + pizzaNumber + " is ready for pick up!");
                     ifDataReceived = false;
                     //to add a sound to inform cashier an order is ready !
                 }

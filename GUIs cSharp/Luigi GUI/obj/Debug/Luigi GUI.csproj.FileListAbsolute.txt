@@ -18,14 +18,3 @@ C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.exe
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.pdb
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\bin\Debug\Resources\bruh.wav
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Debug\Resources\bruh.wav
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.exe.config
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.exe
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.pdb
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csprojAssemblyReference.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi_GUI.LuigiGUI.resources
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi_GUI.Properties.Resources.resources
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csproj.GenerateResource.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csproj.CoreCompileInputs.cache
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.exe
-C:\Users\Rymga\Desktop\1semester\IP\GIT IP\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.pdb

@@ -101,7 +101,7 @@ namespace Luigi_GUI
             
             if (once)
             {
-                orderFromServer = GETrequest("http://192.168.1.70:42069");
+                orderFromServer = GETrequest("http://10.28.109.112:42069");
                 
                 oldText = orderFromServer;
                 if (orderFromServer.StartsWith("Z"))
@@ -111,7 +111,7 @@ namespace Luigi_GUI
                 once = false;
             }
             
-            orderFromServer = GETrequest("http://192.168.1.70:42069");
+            orderFromServer = GETrequest("http://10.28.109.112:42069");
             if (orderFromServer.StartsWith("Z"))
             {
                 bool checkIfNewOrderZ = oldTextZ != orderFromServer;
