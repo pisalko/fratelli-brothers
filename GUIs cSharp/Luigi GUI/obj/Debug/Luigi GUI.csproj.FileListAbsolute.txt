@@ -17,3 +17,13 @@ C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi_GUI
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csproj.GenerateResource.cache
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.exe
 C:\Users\Valio\Desktop\IP GIT\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.pdb
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\bin\Debug\Resources\bruh.wav
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.exe.config
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.exe
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\bin\Debug\Luigi GUI.pdb
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csprojAssemblyReference.cache
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi_GUI.LuigiGUI.resources
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi_GUI.Properties.Resources.resources
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.csproj.GenerateResource.cache
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.exe
+C:\Users\Valio\Desktop\IP GITHUB\IP-V-I-E\GUIs cSharp\Luigi GUI\obj\Debug\Luigi GUI.pdb

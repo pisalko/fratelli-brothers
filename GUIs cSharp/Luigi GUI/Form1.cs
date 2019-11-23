@@ -18,6 +18,13 @@ namespace Luigi_GUI
         {
             InitializeComponent();
             listBox1.Items.Clear();
+            listBox1.Focus();
+            lbReadyOrders.Text = "Ready\nOrders:";
+            label2.Text = "Controls:\n" +
+                "Hover over ready orders to clear\n" +
+                "Press any key to put last\n" +
+                "made pizza in oven";
+
         }
 
         //Get request returning string from server
@@ -42,41 +49,48 @@ namespace Luigi_GUI
         }
 
         //POST request sending string to server
-        private void POSTrequest(string uri, String order)
+        /*private void POSTrequest(string uri, String order)
         {
-            WebRequest request = WebRequest.Create(uri);
-            // Set the Method property of the request to POST.
-            request.Method = "POST";
-            // Create POST data and convert it to a byte array.
-            string postData = "Now it works";
-            byte[] buffer = Encoding.UTF8.GetBytes(order);
-            // Set the ContentType property of the WebRequest.
-            request.ContentType = "Mario's Interface";
-            // Set the ContentLength property of the WebRequest. 
-            request.ContentLength = buffer.Length;
-            // Get the request stream.
-            Stream dataStream = request.GetRequestStream();
-            // Write the data to the request stream.
-            dataStream.Write(buffer, 0, buffer.Length);
-            // Close the Stream object.
-            dataStream.Close();
-            // Get the response.           
-            WebResponse response = request.GetResponse();
-            // Display the status.
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            // Get the stream containing content returned by the server.
-            dataStream = response.GetResponseStream();
-            // Open the stream using a StreamReader for easy access.
-            StreamReader reader = new StreamReader(dataStream);
-            // Read the content.
-            string responseFromServer = reader.ReadToEnd();
-            // Display the content.
-            Console.WriteLine(responseFromServer);
-            // Clean up the streams.
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-        }
+            try
+            {
+                WebRequest request = WebRequest.Create(uri);
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+                // Create POST data and convert it to a byte array.
+                string postData = "Now it works";
+                byte[] buffer = Encoding.UTF8.GetBytes(order);
+                // Set the ContentType property of the WebRequest.
+                request.ContentType = "Mario's Interface";
+                // Set the ContentLength property of the WebRequest. 
+                request.ContentLength = buffer.Length;
+                // Get the request stream.
+                Stream dataStream = request.GetRequestStream();
+                // Write the data to the request stream.
+                dataStream.Write(buffer, 0, buffer.Length);
+                // Close the Stream object.
+                dataStream.Close();
+                // Get the response.           
+                WebResponse response = request.GetResponse();
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+                // Get the stream containing content returned by the server.
+                dataStream = response.GetResponseStream();
+                // Open the stream using a StreamReader for easy access.
+                StreamReader reader = new StreamReader(dataStream);
+                // Read the content.
+                string responseFromServer = reader.ReadToEnd();
+                // Display the content.
+                Console.WriteLine(responseFromServer);
+                // Clean up the streams.
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show("Problem with server, please check connection.");
+            }
+        }*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -90,6 +104,7 @@ namespace Luigi_GUI
 
         bool once = true;
         String oldText = "";
+        String oldTextZ = "";
         String orderFromServer = "";
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,18 +114,56 @@ namespace Luigi_GUI
             {
                 orderFromServer = GETrequest("http://10.28.109.112:42069");
                 oldText = orderFromServer;
+                if(orderFromServer.StartsWith("Z"))
+                {
+                    oldTextZ = orderFromServer;
+                }
                 once = false;
             }
 
             orderFromServer = GETrequest("http://10.28.109.112:42069");
             bool checkIfNewOrder = oldText != orderFromServer;
-            
-            if (checkIfNewOrder)
+
+            if (orderFromServer.StartsWith("Z"))
+            {   
+                bool checkIfNewOrderZ = oldTextZ != orderFromServer;
+
+                if (checkIfNewOrderZ)
+                {
+                    oldTextZ = orderFromServer;
+                    String textAddedToLV = oldTextZ.Substring(1);
+                    listViewReadyOrders.Items.Add(textAddedToLV);
+
+                    System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
+                    notificationSound.Stream = Properties.Resources.bruh;
+                    notificationSound.Play();
+                }
+            }
+            else if (checkIfNewOrder)
             {
                 oldText = orderFromServer;
                 listBox1.Items.Add(oldText);
             }
+        }
 
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                listBox1.Items.Remove(listBox1.Items[0]);
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show("There is no order.");
+            }
+
+        }
+
+        private void listViewReadyOrders_MouseEnter(object sender, EventArgs e)
+        {
+            listViewReadyOrders.Clear();
+            listBox1.Focus();
         }
     }
 }
+

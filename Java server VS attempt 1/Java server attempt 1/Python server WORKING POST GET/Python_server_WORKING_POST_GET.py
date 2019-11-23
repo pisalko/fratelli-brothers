@@ -11,6 +11,7 @@ Send a HEAD request:
 Send a POST request:
     curl -d "foo=bar&bin=baz" http://localhost:8000
 """
+import socket
 import argparse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
@@ -18,12 +19,24 @@ class S(BaseHTTPRequestHandler):
 
     post_data = "" 
     message = ""
-
+      
     def _set_headers(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
     
+        
+    def get_ip():
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            # doesn't even have to be reachable
+            s.connect(('10.255.255.255', 1))
+            IP = s.getsockname()[0]
+        except:
+            IP = '127.0.0.1'
+        finally:
+            s.close()
+        return IP
 
     def do_GET(self):
         global post_data #"Hi!"
@@ -46,7 +59,8 @@ class S(BaseHTTPRequestHandler):
         message = post_data
         
 
-def run(server_class=HTTPServer, handler_class=S, addr="10.28.109.112", port=42069):
+def run(server_class=HTTPServer, handler_class=S, addr=S.get_ip(), port=42069):
+    #addr = S.get_ip() #Gets localhost IP
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
 
@@ -59,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-l",
         "--listen",
-        default="10.28.109.112",
+        default=S.get_ip(),
         help="Specify the IP address on which the server listens",
     )
     parser.add_argument(
