@@ -36,8 +36,9 @@ namespace SmallestFibonachiNumber
 
         String textInPort;
         List<String> dataSentToServer = new List<String>();
+        List<String> ordersMade = new List<String>();
 
-        bool pizzaTypeCh, pizzaSizeCh, ifDataReceived, checkAllUnchecked = false;
+        bool pizzaTypeCh, pizzaSizeCh, ifDataReceived, checkAllUnchecked, ifDeclinedOrder = false;
 
 
         int ordersForTheDay, pizzaNumber = 0;
@@ -260,6 +261,7 @@ namespace SmallestFibonachiNumber
                 
             
                 POSTrequest("http://" + GetLocalIPAddress() + ":42069/", order);
+                ordersMade.Add(order);
                 
                 lbPizzasOrderedToday.Text = "Pizzas ordered today: " + ordersForTheDay.ToString();
               
@@ -291,12 +293,12 @@ namespace SmallestFibonachiNumber
             if (listBoxPizzas.Items.Count == 0)
             {
                 listBoxPizzas.Items.Add("Pizza type: " + comboBoxPizza.Text);
-                dataSentToServer.Add(comboBoxPizza.Text);// + "    "); //!!!
+                dataSentToServer.Add(comboBoxPizza.Text);
             }
             else
             {
                 listBoxPizzas.Items[0] = "Pizza type: " + comboBoxPizza.Text;
-                dataSentToServer[0] = comboBoxPizza.Text;// + "    ";
+                dataSentToServer[0] = comboBoxPizza.Text;
             }
         }
 
@@ -413,7 +415,19 @@ namespace SmallestFibonachiNumber
                 pizzaNumber++;
                 if (pizzaNumber > ordersForTheDay)
                 {
-                    pizzaNumber--;
+                    if (ifDeclinedOrder)
+                    {
+                        listViewReadyOrders.Items.Add("Pizza number " + declinedOrder + " is ready for pick up!");
+                        orderToBeSaid = "Pizza number " + declinedOrder + " is ready for pick up!";
+                        pizzaNumber--;
+                        declinedOrder = 0;
+                        ifDeclinedOrder = false;
+
+                        Thread secondThread = new Thread(TextToSpeech);
+                        secondThread.Start();
+                    }
+                    else
+                        pizzaNumber--;
                     ifDataReceived = false;
                 }
                 else
@@ -421,9 +435,21 @@ namespace SmallestFibonachiNumber
                     //System.Media.SoundPlayer notificationSound = new System.Media.SoundPlayer();  // bruh sound effect
                     //notificationSound.Stream = Properties.Resources.bruh;
                     //notificationSound.Play();
-
-                    listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
-                    orderToBeSaid = "Pizza number " + pizzaNumber + " is ready for pick up!";
+                    if (declinedOrder == 0)
+                    {
+                        listViewReadyOrders.Items.Add("Pizza number " + pizzaNumber + " is ready for pick up!");
+                        orderToBeSaid = "Pizza number " + pizzaNumber + " is ready for pick up!";
+                    }
+                    else if (ifDeclinedOrder)
+                    {
+                        listViewReadyOrders.Items.Add("Pizza number " + declinedOrder + " is ready for pick up!");
+                        orderToBeSaid = "Pizza number " + declinedOrder + " is ready for pick up!";
+                        pizzaNumber--;
+                        declinedOrder = 0;
+                        ifDeclinedOrder = false;
+                    }
+                    
+                    
 
                     Thread secondThread = new Thread(TextToSpeech);
                     secondThread.Start();
@@ -452,7 +478,7 @@ namespace SmallestFibonachiNumber
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            //MessageBox.Show("");
+            
             textInPort = serialPort1.ReadLine();
             textInPort.Trim();
             textInPort = textInPort.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
@@ -464,6 +490,34 @@ namespace SmallestFibonachiNumber
         private void button1_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        int declinedOrder = 0;
+        private void btnDeclineOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                int orderNumber = Convert.ToInt32(listViewReadyOrders.SelectedItems[0].Text.Substring(13, 1));
+                
+                
+                foreach(String s in ordersMade)
+                {
+                    if (s.Contains(orderNumber.ToString()))
+                    {                       
+                        POSTrequest("http://" + GetLocalIPAddress() + ":42069/", s);
+                        declinedOrder = Convert.ToInt32(s.Substring(s.Length - 5, 5).Trim());
+                        listViewReadyOrders.SelectedItems[0].Remove();
+                        ifDeclinedOrder = true;
+                        break;
+                    }
+                }               
+            }
+            catch (Exception errors)
+            {
+                //MessageBox.Show("Please select an item !");
+                MessageBox.Show(errors.ToString());
+            }
         }
 
         private void btnServed_Click(object sender, EventArgs e)
@@ -478,10 +532,7 @@ namespace SmallestFibonachiNumber
             }
         }
 
-        // private void button1_Click_1(object sender, EventArgs e)
-        //{
-        //     listViewReadyOrders.Items.Add("1aaaaaaaaaaaaaaaaaaaaaa1");
-        // }
+        
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

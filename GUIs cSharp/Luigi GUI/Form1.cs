@@ -109,6 +109,7 @@ namespace Luigi_GUI
         String oldTextZ = "";
         String orderFromServer = "";
         String orderToBeSaid = "";
+        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -125,7 +126,10 @@ namespace Luigi_GUI
             }
 
             orderFromServer = GETrequest("http://10.28.109.112:42069");
+            
             bool checkIfNewOrder = oldText != orderFromServer;
+
+            
 
             if (orderFromServer.StartsWith("Z"))
             {   
@@ -137,7 +141,7 @@ namespace Luigi_GUI
                     String textAddedToLV = oldTextZ.Substring(1);
                     orderToBeSaid = textAddedToLV;
                     listViewReadyOrders.Items.Add(textAddedToLV);
-
+                    oldText = "";
                     Thread secondThread = new Thread(TextToSpeech);
                     secondThread.Start();
 
@@ -145,11 +149,12 @@ namespace Luigi_GUI
                     //notificationSound.Stream = Properties.Resources.bruh;
                     //notificationSound.Play();
                 }
-            }
+            }           
             else if (checkIfNewOrder)
-            {
+            {            
                 oldText = orderFromServer;
                 listBox1.Items.Add(oldText);
+                oldTextZ = "";
             }
         }
 

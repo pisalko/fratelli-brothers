@@ -56,6 +56,7 @@
             this.pbMediumPizza = new System.Windows.Forms.PictureBox();
             this.pbSmallPizza = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDeclineOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLipton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSchweppes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJuice)).BeginInit();
@@ -231,10 +232,10 @@
             this.btnServed.FlatAppearance.BorderSize = 5;
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServed.Location = new System.Drawing.Point(624, 45);
+            this.btnServed.Location = new System.Drawing.Point(615, 19);
             this.btnServed.Margin = new System.Windows.Forms.Padding(2);
             this.btnServed.Name = "btnServed";
-            this.btnServed.Size = new System.Drawing.Size(96, 43);
+            this.btnServed.Size = new System.Drawing.Size(105, 43);
             this.btnServed.TabIndex = 36;
             this.btnServed.Text = "Served";
             this.btnServed.UseVisualStyleBackColor = true;
@@ -381,12 +382,27 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
+            // btnDeclineOrder
+            // 
+            this.btnDeclineOrder.FlatAppearance.BorderSize = 5;
+            this.btnDeclineOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeclineOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeclineOrder.Location = new System.Drawing.Point(615, 79);
+            this.btnDeclineOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeclineOrder.Name = "btnDeclineOrder";
+            this.btnDeclineOrder.Size = new System.Drawing.Size(106, 43);
+            this.btnDeclineOrder.TabIndex = 38;
+            this.btnDeclineOrder.Text = "Decline";
+            this.btnDeclineOrder.UseVisualStyleBackColor = true;
+            this.btnDeclineOrder.Click += new System.EventHandler(this.btnDeclineOrder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(749, 466);
+            this.Controls.Add(this.btnDeclineOrder);
             this.Controls.Add(this.lbPizzasOrderedToday);
             this.Controls.Add(this.btnServed);
             this.Controls.Add(this.label8);
@@ -459,6 +475,7 @@
         private System.Windows.Forms.Timer constantChecks;
         private System.Windows.Forms.Label lbPizzasOrderedToday;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button btnDeclineOrder;
     }
 }
 
