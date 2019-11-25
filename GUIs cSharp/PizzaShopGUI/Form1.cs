@@ -137,8 +137,7 @@ namespace SmallestFibonachiNumber
             DrinksWithInts[5] = "Schweppes' to be served : " + vale[5];
 
             for (int i = 0; i < vale.Length; i ++)
-            {
-                
+            {               
                 if (vale[i] != 0)
                 {
                     finalDrinks += DrinksWithInts[i] + "\n";
@@ -515,8 +514,7 @@ namespace SmallestFibonachiNumber
             }
             catch (Exception errors)
             {
-                //MessageBox.Show("Please select an item !");
-                MessageBox.Show(errors.ToString());
+                MessageBox.Show("Please select an item !");
             }
         }
 
