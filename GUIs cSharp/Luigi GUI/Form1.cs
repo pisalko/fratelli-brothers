@@ -116,7 +116,7 @@ namespace Luigi_GUI
             
             if (once)
             {
-                orderFromServer = GETrequest("http://10.28.109.112:42069");
+                orderFromServer = GETrequest("http://145.93.62.233:42069");
                 oldText = orderFromServer;
                 if(orderFromServer.StartsWith("Z"))
                 {
@@ -125,7 +125,7 @@ namespace Luigi_GUI
                 once = false;
             }
 
-            orderFromServer = GETrequest("http://10.28.109.112:42069");
+            orderFromServer = GETrequest("http://145.93.62.233:42069");
             
             bool checkIfNewOrder = oldText != orderFromServer;
 
@@ -164,7 +164,6 @@ namespace Luigi_GUI
             SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer();
             speechSynthesizer.Speak(toSpeak);
             speechSynthesizer.Dispose();
-
         }
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)

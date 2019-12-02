@@ -73,10 +73,11 @@
             // 
             this.listBoxPizzas.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listBoxPizzas.FormattingEnabled = true;
-            this.listBoxPizzas.Location = new System.Drawing.Point(529, 147);
-            this.listBoxPizzas.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxPizzas.ItemHeight = 16;
+            this.listBoxPizzas.Location = new System.Drawing.Point(705, 181);
+            this.listBoxPizzas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPizzas.Name = "listBoxPizzas";
-            this.listBoxPizzas.Size = new System.Drawing.Size(192, 238);
+            this.listBoxPizzas.Size = new System.Drawing.Size(255, 292);
             this.listBoxPizzas.TabIndex = 3;
             this.listBoxPizzas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -98,10 +99,10 @@
             "Extra Rucola + €",
             "Philadelphia crust + €",
             "Italian-crafted base + €"});
-            this.chlbExtra.Location = new System.Drawing.Point(34, 305);
-            this.chlbExtra.Margin = new System.Windows.Forms.Padding(2);
+            this.chlbExtra.Location = new System.Drawing.Point(45, 375);
+            this.chlbExtra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chlbExtra.Name = "chlbExtra";
-            this.chlbExtra.Size = new System.Drawing.Size(196, 128);
+            this.chlbExtra.Size = new System.Drawing.Size(261, 152);
             this.chlbExtra.TabIndex = 4;
             this.chlbExtra.UseCompatibleTextRendering = true;
             this.chlbExtra.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ChlbExtra_ItemCheck);
@@ -111,10 +112,10 @@
             this.btnToServer.FlatAppearance.BorderSize = 5;
             this.btnToServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToServer.Location = new System.Drawing.Point(529, 400);
-            this.btnToServer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnToServer.Location = new System.Drawing.Point(705, 492);
+            this.btnToServer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnToServer.Name = "btnToServer";
-            this.btnToServer.Size = new System.Drawing.Size(191, 51);
+            this.btnToServer.Size = new System.Drawing.Size(255, 63);
             this.btnToServer.TabIndex = 8;
             this.btnToServer.Text = "Finalize && Pay";
             this.btnToServer.UseVisualStyleBackColor = true;
@@ -135,10 +136,10 @@
             "Vegan",
             "Salami",
             "Rustica"});
-            this.comboBoxPizza.Location = new System.Drawing.Point(34, 163);
-            this.comboBoxPizza.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxPizza.Location = new System.Drawing.Point(45, 201);
+            this.comboBoxPizza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPizza.Name = "comboBoxPizza";
-            this.comboBoxPizza.Size = new System.Drawing.Size(197, 25);
+            this.comboBoxPizza.Size = new System.Drawing.Size(261, 28);
             this.comboBoxPizza.TabIndex = 9;
             this.comboBoxPizza.SelectedIndexChanged += new System.EventHandler(this.comboBoxPizza_SelectedIndexChanged);
             // 
@@ -147,10 +148,10 @@
             this.listViewReadyOrders.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.listViewReadyOrders.GridLines = true;
             this.listViewReadyOrders.HideSelection = false;
-            this.listViewReadyOrders.Location = new System.Drawing.Point(178, 19);
-            this.listViewReadyOrders.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewReadyOrders.Location = new System.Drawing.Point(237, 23);
+            this.listViewReadyOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewReadyOrders.Name = "listViewReadyOrders";
-            this.listViewReadyOrders.Size = new System.Drawing.Size(433, 103);
+            this.listViewReadyOrders.Size = new System.Drawing.Size(576, 126);
             this.listViewReadyOrders.TabIndex = 28;
             this.listViewReadyOrders.TileSize = new System.Drawing.Size(200, 36);
             this.listViewReadyOrders.UseCompatibleStateImageBehavior = false;
@@ -159,30 +160,27 @@
             // lbCola
             // 
             this.lbCola.AutoSize = true;
-            this.lbCola.Location = new System.Drawing.Point(276, 186);
-            this.lbCola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCola.Location = new System.Drawing.Point(368, 229);
             this.lbCola.Name = "lbCola";
-            this.lbCola.Size = new System.Drawing.Size(13, 13);
+            this.lbCola.Size = new System.Drawing.Size(16, 17);
             this.lbCola.TabIndex = 29;
             this.lbCola.Text = "0";
             // 
             // lbPepsi
             // 
             this.lbPepsi.AutoSize = true;
-            this.lbPepsi.Location = new System.Drawing.Point(355, 186);
-            this.lbPepsi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbPepsi.Location = new System.Drawing.Point(473, 229);
             this.lbPepsi.Name = "lbPepsi";
-            this.lbPepsi.Size = new System.Drawing.Size(13, 13);
+            this.lbPepsi.Size = new System.Drawing.Size(16, 17);
             this.lbPepsi.TabIndex = 30;
             this.lbPepsi.Text = "0";
             // 
             // lbFanta
             // 
             this.lbFanta.AutoSize = true;
-            this.lbFanta.Location = new System.Drawing.Point(429, 186);
-            this.lbFanta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbFanta.Location = new System.Drawing.Point(572, 229);
             this.lbFanta.Name = "lbFanta";
-            this.lbFanta.Size = new System.Drawing.Size(13, 13);
+            this.lbFanta.Size = new System.Drawing.Size(16, 17);
             this.lbFanta.TabIndex = 31;
             this.lbFanta.Text = "0";
             this.lbFanta.Click += new System.EventHandler(this.Label4_Click);
@@ -190,52 +188,49 @@
             // lbJuice
             // 
             this.lbJuice.AutoSize = true;
-            this.lbJuice.Location = new System.Drawing.Point(273, 268);
-            this.lbJuice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbJuice.Location = new System.Drawing.Point(364, 330);
             this.lbJuice.Name = "lbJuice";
-            this.lbJuice.Size = new System.Drawing.Size(13, 13);
+            this.lbJuice.Size = new System.Drawing.Size(16, 17);
             this.lbJuice.TabIndex = 32;
             this.lbJuice.Text = "0";
             // 
             // lbLipton
             // 
             this.lbLipton.AutoSize = true;
-            this.lbLipton.Location = new System.Drawing.Point(353, 268);
-            this.lbLipton.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbLipton.Location = new System.Drawing.Point(471, 330);
             this.lbLipton.Name = "lbLipton";
-            this.lbLipton.Size = new System.Drawing.Size(13, 13);
+            this.lbLipton.Size = new System.Drawing.Size(16, 17);
             this.lbLipton.TabIndex = 33;
             this.lbLipton.Text = "0";
             // 
             // lbSchweppes
             // 
             this.lbSchweppes.AutoSize = true;
-            this.lbSchweppes.Location = new System.Drawing.Point(429, 268);
-            this.lbSchweppes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSchweppes.Location = new System.Drawing.Point(572, 330);
             this.lbSchweppes.Name = "lbSchweppes";
-            this.lbSchweppes.Size = new System.Drawing.Size(13, 13);
+            this.lbSchweppes.Size = new System.Drawing.Size(16, 17);
             this.lbSchweppes.TabIndex = 34;
             this.lbSchweppes.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(526, 131);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(701, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.Size = new System.Drawing.Size(103, 17);
             this.label8.TabIndex = 35;
             this.label8.Text = "Ordered Pizza:";
             // 
             // btnServed
             // 
+            this.btnServed.AutoSize = true;
             this.btnServed.FlatAppearance.BorderSize = 5;
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServed.Location = new System.Drawing.Point(615, 19);
-            this.btnServed.Margin = new System.Windows.Forms.Padding(2);
+            this.btnServed.Location = new System.Drawing.Point(820, 23);
+            this.btnServed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnServed.Name = "btnServed";
-            this.btnServed.Size = new System.Drawing.Size(105, 43);
+            this.btnServed.Size = new System.Drawing.Size(140, 53);
             this.btnServed.TabIndex = 36;
             this.btnServed.Text = "Served";
             this.btnServed.UseVisualStyleBackColor = true;
@@ -250,10 +245,9 @@
             // lbPizzasOrderedToday
             // 
             this.lbPizzasOrderedToday.AutoSize = true;
-            this.lbPizzasOrderedToday.Location = new System.Drawing.Point(9, 7);
-            this.lbPizzasOrderedToday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbPizzasOrderedToday.Location = new System.Drawing.Point(12, 9);
             this.lbPizzasOrderedToday.Name = "lbPizzasOrderedToday";
-            this.lbPizzasOrderedToday.Size = new System.Drawing.Size(35, 13);
+            this.lbPizzasOrderedToday.Size = new System.Drawing.Size(46, 17);
             this.lbPizzasOrderedToday.TabIndex = 37;
             this.lbPizzasOrderedToday.Text = "label1";
             // 
@@ -265,10 +259,10 @@
             // pbLipton
             // 
             this.pbLipton.Image = global::SmallestFibonachiNumber.Properties.Resources._69665995_482211882624268_5173394039105388544_n;
-            this.pbLipton.Location = new System.Drawing.Point(355, 283);
-            this.pbLipton.Margin = new System.Windows.Forms.Padding(2);
+            this.pbLipton.Location = new System.Drawing.Point(473, 348);
+            this.pbLipton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbLipton.Name = "pbLipton";
-            this.pbLipton.Size = new System.Drawing.Size(65, 65);
+            this.pbLipton.Size = new System.Drawing.Size(87, 80);
             this.pbLipton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLipton.TabIndex = 26;
             this.pbLipton.TabStop = false;
@@ -277,10 +271,10 @@
             // pbSchweppes
             // 
             this.pbSchweppes.Image = global::SmallestFibonachiNumber.Properties.Resources.schweps;
-            this.pbSchweppes.Location = new System.Drawing.Point(431, 283);
-            this.pbSchweppes.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSchweppes.Location = new System.Drawing.Point(575, 348);
+            this.pbSchweppes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbSchweppes.Name = "pbSchweppes";
-            this.pbSchweppes.Size = new System.Drawing.Size(65, 65);
+            this.pbSchweppes.Size = new System.Drawing.Size(87, 80);
             this.pbSchweppes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSchweppes.TabIndex = 25;
             this.pbSchweppes.TabStop = false;
@@ -289,10 +283,10 @@
             // pbJuice
             // 
             this.pbJuice.Image = global::SmallestFibonachiNumber.Properties.Resources._57154590_828536920833012_710430390107504640_n;
-            this.pbJuice.Location = new System.Drawing.Point(275, 283);
-            this.pbJuice.Margin = new System.Windows.Forms.Padding(2);
+            this.pbJuice.Location = new System.Drawing.Point(367, 348);
+            this.pbJuice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbJuice.Name = "pbJuice";
-            this.pbJuice.Size = new System.Drawing.Size(65, 65);
+            this.pbJuice.Size = new System.Drawing.Size(87, 80);
             this.pbJuice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbJuice.TabIndex = 24;
             this.pbJuice.TabStop = false;
@@ -301,10 +295,10 @@
             // pbPepsi
             // 
             this.pbPepsi.Image = global::SmallestFibonachiNumber.Properties.Resources._70866405_242230256702466_3159342780040347648_n;
-            this.pbPepsi.Location = new System.Drawing.Point(355, 201);
-            this.pbPepsi.Margin = new System.Windows.Forms.Padding(2);
+            this.pbPepsi.Location = new System.Drawing.Point(473, 247);
+            this.pbPepsi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbPepsi.Name = "pbPepsi";
-            this.pbPepsi.Size = new System.Drawing.Size(65, 65);
+            this.pbPepsi.Size = new System.Drawing.Size(87, 80);
             this.pbPepsi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPepsi.TabIndex = 22;
             this.pbPepsi.TabStop = false;
@@ -313,10 +307,10 @@
             // pbFanta
             // 
             this.pbFanta.Image = global::SmallestFibonachiNumber.Properties.Resources.fanta;
-            this.pbFanta.Location = new System.Drawing.Point(431, 201);
-            this.pbFanta.Margin = new System.Windows.Forms.Padding(2);
+            this.pbFanta.Location = new System.Drawing.Point(575, 247);
+            this.pbFanta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbFanta.Name = "pbFanta";
-            this.pbFanta.Size = new System.Drawing.Size(65, 65);
+            this.pbFanta.Size = new System.Drawing.Size(87, 80);
             this.pbFanta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFanta.TabIndex = 21;
             this.pbFanta.TabStop = false;
@@ -325,10 +319,10 @@
             // pbCola
             // 
             this.pbCola.Image = global::SmallestFibonachiNumber.Properties.Resources._60317512_2715900981758696_5188495698168905728_n1;
-            this.pbCola.Location = new System.Drawing.Point(275, 201);
-            this.pbCola.Margin = new System.Windows.Forms.Padding(2);
+            this.pbCola.Location = new System.Drawing.Point(367, 247);
+            this.pbCola.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbCola.Name = "pbCola";
-            this.pbCola.Size = new System.Drawing.Size(65, 65);
+            this.pbCola.Size = new System.Drawing.Size(87, 80);
             this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCola.TabIndex = 17;
             this.pbCola.TabStop = false;
@@ -337,10 +331,10 @@
             // pbLargePizza
             // 
             this.pbLargePizza.Image = ((System.Drawing.Image)(resources.GetObject("pbLargePizza.Image")));
-            this.pbLargePizza.Location = new System.Drawing.Point(143, 207);
-            this.pbLargePizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbLargePizza.Location = new System.Drawing.Point(191, 255);
+            this.pbLargePizza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbLargePizza.Name = "pbLargePizza";
-            this.pbLargePizza.Size = new System.Drawing.Size(86, 87);
+            this.pbLargePizza.Size = new System.Drawing.Size(115, 107);
             this.pbLargePizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLargePizza.TabIndex = 16;
             this.pbLargePizza.TabStop = false;
@@ -349,10 +343,10 @@
             // pbMediumPizza
             // 
             this.pbMediumPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbMediumPizza.Image")));
-            this.pbMediumPizza.Location = new System.Drawing.Point(76, 219);
-            this.pbMediumPizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMediumPizza.Location = new System.Drawing.Point(101, 270);
+            this.pbMediumPizza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbMediumPizza.Name = "pbMediumPizza";
-            this.pbMediumPizza.Size = new System.Drawing.Size(63, 65);
+            this.pbMediumPizza.Size = new System.Drawing.Size(84, 80);
             this.pbMediumPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMediumPizza.TabIndex = 15;
             this.pbMediumPizza.TabStop = false;
@@ -361,10 +355,10 @@
             // pbSmallPizza
             // 
             this.pbSmallPizza.Image = ((System.Drawing.Image)(resources.GetObject("pbSmallPizza.Image")));
-            this.pbSmallPizza.Location = new System.Drawing.Point(34, 235);
-            this.pbSmallPizza.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSmallPizza.Location = new System.Drawing.Point(45, 289);
+            this.pbSmallPizza.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbSmallPizza.Name = "pbSmallPizza";
-            this.pbSmallPizza.Size = new System.Drawing.Size(38, 40);
+            this.pbSmallPizza.Size = new System.Drawing.Size(51, 49);
             this.pbSmallPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSmallPizza.TabIndex = 14;
             this.pbSmallPizza.TabStop = false;
@@ -373,10 +367,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 19);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 124);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 153);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
@@ -384,13 +378,14 @@
             // 
             // btnDeclineOrder
             // 
+            this.btnDeclineOrder.AutoSize = true;
             this.btnDeclineOrder.FlatAppearance.BorderSize = 5;
             this.btnDeclineOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeclineOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeclineOrder.Location = new System.Drawing.Point(615, 79);
-            this.btnDeclineOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeclineOrder.Location = new System.Drawing.Point(820, 97);
+            this.btnDeclineOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeclineOrder.Name = "btnDeclineOrder";
-            this.btnDeclineOrder.Size = new System.Drawing.Size(106, 43);
+            this.btnDeclineOrder.Size = new System.Drawing.Size(141, 53);
             this.btnDeclineOrder.TabIndex = 38;
             this.btnDeclineOrder.Text = "Decline";
             this.btnDeclineOrder.UseVisualStyleBackColor = true;
@@ -398,10 +393,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(749, 466);
+            this.ClientSize = new System.Drawing.Size(999, 574);
             this.Controls.Add(this.btnDeclineOrder);
             this.Controls.Add(this.lbPizzasOrderedToday);
             this.Controls.Add(this.btnServed);
@@ -428,7 +424,7 @@
             this.Controls.Add(this.chlbExtra);
             this.Controls.Add(this.listBoxPizzas);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Fratelli Pizza Interface Cashier";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
